@@ -91,11 +91,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    startActivity(new Intent(MainActivity.this, Dashboard.class));
+                    startActivity(new Intent(MainActivity.this, HomePage.class));
 
 
                 }else{
-                    Toast.makeText(MainActivity.this, "failed to login, incorrecto credentials", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "failed to login, incorrect credentials", Toast.LENGTH_LONG).show();
                 }
             }
         });

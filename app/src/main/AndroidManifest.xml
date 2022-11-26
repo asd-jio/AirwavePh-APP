@@ -10,6 +10,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginwithAuth">
         <activity
+            android:name=".OtherConcerns"
+            android:exported="false" />
+        <activity
+            android:name=".TicketingTech"
+            android:exported="false" />
+        <activity
+            android:name=".TicketingIT"
+            android:exported="false" />
+        <activity
+            android:name=".TicketAccounting"
+            android:exported="false" />
+        <activity
+            android:name=".Inbox"
+            android:exported="false" />
+        <activity
+            android:name=".HelpPage"
+            android:exported="false"
+            android:label="@string/title_activity_help_page"
+            android:theme="@style/Theme.LoginwithAuth.NoActionBar" />
+        <activity
+            android:name=".Ticketing"
+            android:exported="false" />
+        <activity
+            android:name=".RequestSOA"
+            android:exported="false" />
+        <activity
+            android:name=".Newsletter"
+            android:exported="false" />
+        <activity
+            android:name=".PlanUpdown"
+            android:exported="false" />
+        <activity
             android:name=".HomePage"
             android:exported="false" />
         <activity
@@ -25,8 +57,7 @@
             android:label="Create Account" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

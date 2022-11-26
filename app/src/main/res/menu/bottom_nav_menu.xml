@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/botHome"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/botHelp"
+        android:icon="@drawable/ic_baseline_help_24"
+        android:title="Help" />
+
+    <item
+        android:id="@+id/botInbox"
+        android:icon="@drawable/ic_baseline_inbox_24"
+        android:title="Inbox" />
+
+    <item
+        android:id="@+id/botProfile"
+        android:icon="@drawable/ic_baseline_profile_24"
+        android:title="Profile" />
+
+</menu>

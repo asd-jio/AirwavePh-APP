@@ -3,11 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/LoginwithAuth/app/src/main/res/drawable/buttons.xml" value="0.1" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.163" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.163" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/drawable/ic_baseline_inbox_24.xml" value="0.163" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/drawable/ic_baseline_profile_24.xml" value="0.163" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.25" />
         <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_dashboard.xml" value="0.20416666666666666" />
-        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_home_page.xml" value="0.20416666666666666" />
-        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_help_page.xml" value="0.20416666666666666" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_home_page.xml" value="0.1" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_inbox.xml" value="0.20416666666666666" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_plan_updown.xml" value="0.33" />
         <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_profile.xml" value="0.33" />
         <entry key="..\:/LoginwithAuth/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/fragment_help.xml" value="0.1" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/fragment_inbox.xml" value="0.1" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/LoginwithAuth/app/src/main/res/menu/bottom_nav_menu.xml" value="0.5" />
       </map>
     </option>
   </component>
