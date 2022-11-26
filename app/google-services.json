@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "240607119290",
+    "project_id": "loginwithauth-20b07",
+    "storage_bucket": "loginwithauth-20b07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240607119290:android:27b4debdd102285a6c3f83",
+        "android_client_info": {
+          "package_name": "com.example.loginwithauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240607119290-n5ikdsl8rfsr1b8ir5se686lfg952ncb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuBUjHxvZat7zoNcaB3pD7xHjt8nFVDxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240607119290-n5ikdsl8rfsr1b8ir5se686lfg952ncb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
