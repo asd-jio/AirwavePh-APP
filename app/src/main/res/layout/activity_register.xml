@@ -8,32 +8,48 @@
     android:padding="5dp"
     tools:context=".Register">
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="176dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/regtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/airwave_logo" />
+
     <TextView
         android:id="@+id/regtitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:text="Create your Account"
-        android:textAlignment="center"
-        android:textSize="35sp"
+        android:layout_width="369dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="Join the network revolution today! Please register a new account."
+        android:textColor="@color/white"
+        android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="348dp"
+        android:layout_height="430dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="20dp"
         android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/regbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/regtitle">
+        app:layout_constraintTop_toBottomOf="@+id/regtitle">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -156,18 +172,24 @@
                 android:hint="Province"
                 android:padding="5dp" />
 
-            <Button
-                android:id="@+id/regbutton"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/buttons2"
-                android:text="Register" />
-
 
         </LinearLayout>
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/regbutton"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="38dp"
+        android:background="@drawable/buttons2"
+        android:text="Register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

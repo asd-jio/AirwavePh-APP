@@ -1,5 +1,7 @@
 package com.example.loginwithauth;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,58 +9,66 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HelpFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class HelpFragment extends Fragment {
+public class HelpFragment extends Fragment implements View.OnClickListener {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private Button btn1, btn2, btn3;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public HelpFragment() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HelpFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HelpFragment newInstance(String param1, String param2) {
-        HelpFragment fragment = new HelpFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    Intent intent;
+    Activity context;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        context = getActivity();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_help, container, false);
+        View view = inflater.inflate(R.layout.fragment_help, container, false);
+
+        return view;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+
+
+        btn1 = (Button) context.findViewById(R.id.help_btn1);
+        btn1.setOnClickListener(this);
+
+        btn2 = (Button) context.findViewById(R.id.help_btn2);
+        btn2.setOnClickListener(this);
+
+        btn3 = (Button) context.findViewById(R.id.help_btn3);
+        btn3.setOnClickListener(this);
+
+    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.help_btn1:
+                intent = new Intent(context, help1.class);
+                startActivity(intent);
+                break;
+
+            case R.id.help_btn2:
+                intent = new Intent(context, help2.class);
+                startActivity(intent);
+                break;
+
+            case R.id.help_btn3:elp:
+                intent = new Intent(context, help3.class);
+                startActivity(intent);
+                break;
+
+
+        }
+    }
+
+
 }

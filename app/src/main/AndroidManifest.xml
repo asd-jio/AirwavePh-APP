@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginwithAuth">
         <activity
+            android:name=".help3"
+            android:exported="false" />
+        <activity
+            android:name=".help2"
+            android:exported="false" />
+        <activity
+            android:name=".help1"
+            android:exported="false" />
+        <activity
+            android:name=".TheDevs"
+            android:exported="false" />
+        <activity
+            android:name=".ContactUs"
+            android:exported="false" />
+        <activity
+            android:name=".AboutUs"
+            android:exported="false" />
+        <activity
             android:name=".OtherConcerns"
             android:exported="false" />
         <activity

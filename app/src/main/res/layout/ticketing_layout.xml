@@ -4,6 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TicketAccounting">
+    android:background="@drawable/bg_color3">
 
+    <AbsoluteLayout
+        android:id="@+id/absoluteLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingLeft="35dp"
+        android:paddingRight="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Deprecated">
+
+        <TextView
+            android:id="@+id/dept_text"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_y="15dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/subjectText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_y="160dp"
+            android:background="@drawable/textbox"
+            android:ems="10"
+            android:hint="Subject"
+            android:inputType="textPersonName"
+            android:outlineAmbientShadowColor="@color/black"
+            android:padding="20dp"
+            tools:layout_editor_absoluteX="45dp"
+            tools:layout_editor_absoluteY="70dp" />
+
+        <EditText
+            android:id="@+id/mainMessage"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_y="230dp"
+            android:background="@drawable/textbox"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Your Message here"
+            android:inputType="textMultiLine"
+            android:padding="20dp" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_x="60dp"
+            android:layout_y="665dp"
+            android:background="@drawable/buttons"
+            android:gravity="center"
+            android:text="Submit"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="602dp" />
+
+        <TextView
+            android:id="@+id/senderInfo"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_y="610dp"
+            android:textColor="#F4F4F4"
+            android:textSize="20sp" />
+    </AbsoluteLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
