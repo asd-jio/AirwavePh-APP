@@ -1,64 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_color"
     tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40dp"
-        android:layout_gravity="center"
-        android:text="HOME" />
 
-<AbsoluteLayout
+    <AbsoluteLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="Deprecated">
-    <Button
-        android:id="@+id/planSubscription"
-        android:layout_width="120dp"
-        android:layout_height="180dp"
-        android:layout_x="50dp"
-        android:layout_y="150dp"
-        android:text="Plan Upgrade/Downgrade"
-        android:textSize="12dp"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="183dp" />
 
-    <Button
-        android:id="@+id/newsletter"
-        android:layout_width="120dp"
-        android:layout_height="180dp"
-        android:layout_x="240dp"
-        android:layout_y="150dp"
-        android:text="Newsletter"
-        android:textSize="12dp"
-        tools:layout_editor_absoluteX="241dp"
-        tools:layout_editor_absoluteY="183dp" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="158dp"
+            android:layout_height="118dp"
+            android:layout_x="132dp"
+            android:layout_y="28dp"
+            android:src="@drawable/airwave_logo" />
 
-    <Button
-        android:id="@+id/request"
-        android:layout_width="120dp"
-        android:layout_height="181dp"
-        android:layout_x="50dp"
-        android:layout_y="375dp"
-        android:text="Request Soa"
-        android:textSize="12dp"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="401dp" />
+        <Button
+            android:id="@+id/planSubscription"
+            android:layout_width="142dp"
+            android:layout_height="201dp"
+            android:layout_x="46dp"
+            android:layout_y="213dp"
+            android:background="@drawable/plan_btn"
+            android:textSize="12dp"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="183dp" />
 
-    <Button
-        android:id="@+id/ticket"
-        android:layout_width="120dp"
-        android:layout_height="181dp"
-        android:layout_x="236dp"
-        android:layout_y="375dp"
-        android:text="Submit a ticket"
-        android:textSize="12dp"
-        tools:layout_editor_absoluteX="241dp"
-        tools:layout_editor_absoluteY="401dp" />
-</AbsoluteLayout>
+        <Button
+            android:id="@+id/newsletter"
+            android:layout_width="142dp"
+            android:layout_height="201dp"
+            android:layout_x="229dp"
+            android:layout_y="214dp"
+            android:background="@drawable/newsletter_btn"
+            android:textSize="12dp"
+            tools:layout_editor_absoluteX="241dp"
+            tools:layout_editor_absoluteY="183dp" />
+
+        <Button
+            android:id="@+id/request"
+            android:layout_width="142dp"
+            android:layout_height="201dp"
+            android:layout_x="48dp"
+            android:layout_y="466dp"
+            android:background="@drawable/reqsoa_btn"
+            android:textSize="12dp"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="401dp" />
+
+        <Button
+            android:id="@+id/ticket"
+            android:layout_width="142dp"
+            android:layout_height="201dp"
+            android:layout_x="227dp"
+            android:layout_y="468dp"
+            android:background="@drawable/sumiticket_btn"
+            android:textSize="12dp"
+            tools:layout_editor_absoluteX="241dp"
+            tools:layout_editor_absoluteY="401dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="45dp"
+            android:layout_y="165dp"
+            android:text="Hello, Username!"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
+    </AbsoluteLayout>
 </FrameLayout>

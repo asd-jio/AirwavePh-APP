@@ -21,12 +21,13 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Register extends AppCompatActivity implements View.OnClickListener {
 
     private TextView banner, register;
-    private EditText etfirstname, etlastname, etemail, etpassword, etconpassword;
+    private EditText etfullname, etcontactnumber, etaccountnumber, etemail, etpassword, etconpassword, ethousenumber, etstreet, etbarangay, ettown, etprovince;
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
@@ -37,11 +38,17 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         register = (Button) findViewById(R.id.regbutton);
         register.setOnClickListener(this);
 
-        etfirstname = (EditText) findViewById(R.id.regfirstname);
-        etlastname = (EditText) findViewById(R.id.reglastname);
+        etfullname = (EditText) findViewById(R.id.regfullname);
+        etcontactnumber = (EditText) findViewById(R.id.regcontactnumber);
+        etaccountnumber = (EditText) findViewById(R.id.regaccountnumber);
         etemail = (EditText) findViewById(R.id.regemail);
         etpassword = (EditText) findViewById(R.id.regpassword);
         etconpassword = (EditText) findViewById(R.id.regconfirmpassword);
+        ethousenumber = (EditText) findViewById(R.id.reghousenumber);
+        etstreet = (EditText) findViewById(R.id.regstreet);
+        etbarangay = (EditText) findViewById(R.id.regbarangay);
+        ettown = (EditText) findViewById(R.id.regtown);
+        etprovince = (EditText) findViewById(R.id.regprovince);
     }
 
     @Override
@@ -61,60 +68,97 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
     private void register() {
 
-        String fname = etfirstname.getText().toString().trim();
-        String lname = etlastname.getText().toString().trim();
+        String fname = etfullname.getText().toString().trim();
+        String Cnum = etcontactnumber.getText().toString().trim();
+        String Anum = etaccountnumber.getText().toString().trim();
         String email = etemail.getText().toString().trim();
         String password = etpassword.getText().toString().trim();
         String cpassword = etconpassword.getText().toString().trim();
+        String Hnum = ethousenumber.getText().toString().trim();
+        String street = etstreet.getText().toString().trim();
+        String barangay = etbarangay.getText().toString().trim();
+        String town = ettown.getText().toString().trim();
+        String province = etprovince.getText().toString().trim();
 
         if (fname.isEmpty()){
-            etfirstname.setError("Please enter your First Name");
-            etfirstname.requestFocus();
+            etfullname.setError("Please enter your Full Name");
+            etfullname.requestFocus();
             return;
         }
-        if (lname.isEmpty()){
-            etlastname.setError("Pls enter your last name");
-            etlastname.requestFocus();
+        if (Cnum.isEmpty()){
+            etcontactnumber.setError("Please enter your Contact Number");
+            etcontactnumber.requestFocus();
+            return;
+        }
+        if (Anum.isEmpty()){
+            etaccountnumber.setError("Please enter your Account Number");
+            etaccountnumber.requestFocus();
             return;
         }
         if (email.isEmpty()){
-            etemail.setError("pls enter your email address");
+            etemail.setError("Please enter your email address");
             etemail.requestFocus();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            etemail.setError("Pls enter a valid email address");
+            etemail.setError("Please enter a valid email address");
             etemail.requestFocus();
             return;
         }
         if (password.isEmpty()){
-            etpassword.setError("please enter your password");
+            etpassword.setError("Please enter your password");
             etpassword.requestFocus();
             return;
         }
         if (cpassword.isEmpty()){
-            etconpassword.setError("pls re enter your password");
+            etconpassword.setError("Re-enter password");
             etconpassword.requestFocus();
             return;
 
         }
         if (!cpassword.equals(password)){
-            etconpassword.setError("passwords do not match");
+            etconpassword.setError("Passwords do not match");
             etconpassword.requestFocus();
             return;
         }
         if (cpassword.length() < 6){
-            etpassword.setError("must contain at least 6 characters");
+            etpassword.setError("Password must contain at least 6 characters");
             etpassword.requestFocus();
             return;
         }
+        if (Hnum.isEmpty()){
+            ethousenumber.setError("Please enter your House Number");
+            ethousenumber.requestFocus();
+            return;
+        }
+        if (street.isEmpty()){
+            etstreet.setError("Please enter your Street Address");
+            etstreet.requestFocus();
+            return;
+        }
+        if (barangay.isEmpty()){
+            etbarangay.setError("Please enter your Barangay");
+            etbarangay.requestFocus();
+            return;
+        }
+        if (town.isEmpty()){
+            ettown.setError("Please enter your Town/City");
+            ettown.requestFocus();
+            return;
+        }
+        if (province.isEmpty()){
+            etprovince.setError("Please enter your Province");
+            etprovince.requestFocus();
+            return;
+        }
+
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()){
-                    Users user = new Users(fname, lname, email);
+                    Users user = new Users(fname, email, Cnum, Anum, password, cpassword, Hnum, street, barangay, town, province);
 
                     FirebaseDatabase.getInstance().getReference("users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -123,18 +167,15 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                         public void onComplete(@NonNull Task<Void> task) {
 
                             if(task.isSuccessful()){
-                                Toast.makeText(Register.this, "account created successfully", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Register.this, "Account Created Successfully", Toast.LENGTH_LONG).show();
 
                             }else{
-                                Toast.makeText(Register.this, "account failed to register. pls try again", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Register.this, "Account failed to register. Please try again", Toast.LENGTH_LONG).show();
                             }
                         }
                     });
-
-
-
                 }else{
-                    Toast.makeText(Register.this, "account failed to register. pls try again", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this, "Account failed to register. Please try again", Toast.LENGTH_LONG).show();
                 }
             }
         });

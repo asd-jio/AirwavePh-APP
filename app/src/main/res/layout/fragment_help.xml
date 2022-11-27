@@ -3,13 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@drawable/bg_color"
+    android:paddingLeft="10dp"
+    android:paddingTop="15dp"
+    android:paddingRight="10dp"
     tools:context=".HelpFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <AbsoluteLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:ignore="Deprecated">
+    <Button
+        android:id="@+id/helpbtn1"
+        android:layout_width="match_parent"
+        android:layout_height="187dp"
+        android:background="@drawable/help_btn1" />
+
+        <Button
+            android:id="@+id/helpbtn2"
+            android:layout_width="match_parent"
+            android:layout_height="187dp"
+            android:layout_x="0dp"
+            android:layout_y="197dp"
+            android:background="@drawable/help_btn2" />
+
+        <Button
+            android:id="@+id/helpbtn3"
+            android:layout_width="match_parent"
+            android:layout_height="187dp"
+            android:layout_x="0dp"
+            android:layout_y="392dp"
+            android:background="@drawable/help_btn3" />
+    </AbsoluteLayout>
 
 </FrameLayout>

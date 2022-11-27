@@ -24,6 +24,7 @@ public class Profile extends AppCompatActivity {
     private FirebaseUser user;
     private DatabaseReference reference;
 
+
     private String userID;
 
     @Override
@@ -31,7 +32,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        logout = (Button) findViewById(R.id.logoutbutton);
+       // logout = (Button) findViewById(R.id.logoutbutton);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,10 +45,10 @@ public class Profile extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("users");
         userID = user.getUid();
 
-        final TextView welcomeText = (TextView) findViewById(R.id.welcome);
-        final TextView emailText = (TextView) findViewById(R.id.emailDisplay);
-        final TextView firstNameText = (TextView) findViewById(R.id.firstNameDisplay);
-        final TextView lastNameText = (TextView) findViewById(R.id.lastnameDisplay);
+//        final TextView welcomeText = (TextView) findViewById(R.id.welcome);
+//        final TextView emailText = (TextView) findViewById(R.id.emailDisplay);
+//        final TextView firstNameText = (TextView) findViewById(R.id.firstNameDisplay);
+//        final TextView lastNameText = (TextView) findViewById(R.id.lastnameDisplay);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -55,18 +56,18 @@ public class Profile extends AppCompatActivity {
 
                 Users userProfile = snapshot.getValue(Users.class);
 
-                if(userProfile != null){
-                    String email = userProfile.email;
-                    String firstName = userProfile.firstname;
-                    String lastName = userProfile.lastname;
-
-                    welcomeText.setText("Welcome, " + firstName + "!");
-                    emailText.setText(email);
-                    firstNameText.setText(firstName);
-                    lastNameText.setText(lastName);
-
-
-                }
+//                if(userProfile != null){
+//                    String email = userProfile.email;
+//                    String firstName = userProfile.firstname;
+//                    String lastName = userProfile.lastname;
+//
+//                    welcomeText.setText("Welcome, " + firstName + "!");
+//                    emailText.setText(email);
+//                    firstNameText.setText(firstName);
+//                    lastNameText.setText(lastName);
+//
+//
+//                }
 
             }
 

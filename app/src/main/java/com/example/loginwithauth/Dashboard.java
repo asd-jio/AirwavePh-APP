@@ -28,7 +28,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         switch (v.getId()){
 
             case R.id.profilebutton:
-                startActivity(new Intent(this, Profile.class));
+                startActivity(new Intent(this, ProfileFragment.class));
                 break;
 
         }
