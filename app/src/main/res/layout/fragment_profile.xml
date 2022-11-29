@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_color"
+    android:background="@drawable/bg_color5"
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,11 +14,11 @@
         tools:ignore="Deprecated">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_x="155dp"
-            android:layout_y="56dp"
-            app:srcCompat="@drawable/profile">
+            android:layout_width="233dp"
+            android:layout_height="165dp"
+            android:layout_x="81dp"
+            android:layout_y="-12dp"
+            app:srcCompat="@drawable/avatar">
 
         </ImageView>
 
@@ -26,68 +26,57 @@
             android:id="@+id/fullName"
             android:layout_width="match_parent"
             android:layout_height="61dp"
-            android:layout_x="-1dp"
-            android:layout_y="170dp"
-            android:paddingLeft="25dp"
-            android:text="Name: "
-            android:textColor="#FFFFFF"
+            android:layout_x="1dp"
+            android:layout_y="138dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:textColor="#6e82b6"
             android:textColorHint="#FFFFFF"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/accountNumber"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:layout_x="2dp"
-            android:layout_y="233dp"
-            android:paddingLeft="25dp"
-            android:text="Account Number: "
+            android:layout_width="292dp"
+            android:layout_height="wrap_content"
+            android:layout_x="81dp"
+            android:layout_y="322dp"
+            android:fontFamily="@font/alice"
+            android:paddingLeft="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/emailAddress"
             android:layout_width="match_parent"
             android:layout_height="63dp"
-            android:layout_x="3dp"
-            android:layout_y="277dp"
-            android:paddingLeft="25dp"
-            android:text="Email Address: "
-            android:textColor="#FFFFFF"
-            android:textSize="24sp" />
+            android:layout_x="1dp"
+            android:layout_y="178dp"
+            android:fontFamily="@font/alice"
+            android:gravity="center"
+            android:text=" "
+            android:textColor="#6e82b6"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/contactNumber"
-            android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:layout_x="3dp"
-            android:layout_y="348dp"
-            android:paddingLeft="25dp"
-            android:text="Contact No.: "
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/addressTitle"
-            android:layout_width="match_parent"
+            android:layout_width="293dp"
             android:layout_height="wrap_content"
-            android:layout_x="2dp"
-            android:layout_y="400dp"
-            android:paddingLeft="25dp"
-            android:text="Address : "
+            android:layout_x="85dp"
+            android:layout_y="428dp"
+            android:paddingLeft="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/fullAddress"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:layout_x="0dp"
-            android:layout_y="431dp"
-            android:paddingLeft="25dp"
+            android:layout_width="283dp"
+            android:layout_height="82dp"
+            android:layout_x="88dp"
+            android:layout_y="525dp"
+            android:fontFamily="@font/alice"
+            android:paddingLeft="10dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             android:textSize="24sp" />
@@ -96,14 +85,39 @@
             android:id="@+id/editprofile"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_x="39dp"
-            android:layout_y="604dp" />
+            android:layout_x="38dp"
+            android:layout_y="669dp" />
 
         <Button
             android:id="@+id/logout"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_x="205dp"
-            android:layout_y="605dp" />
+            android:layout_x="204dp"
+            android:layout_y="669dp" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="46dp"
+            android:layout_height="49dp"
+            android:layout_x="34dp"
+            android:layout_y="312dp"
+            android:src="@drawable/id_card" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="47dp"
+            android:layout_height="46dp"
+            android:layout_x="36dp"
+            android:layout_y="420dp"
+            android:src="@drawable/phone" />
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="63dp"
+            android:layout_height="51dp"
+            android:layout_x="29dp"
+            android:layout_y="523dp"
+            android:src="@drawable/location" />
+
     </AbsoluteLayout>
 </FrameLayout>

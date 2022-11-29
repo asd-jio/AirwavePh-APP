@@ -54,10 +54,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.regtitle:
-                startActivity(new Intent(this, MainActivity.class));
-                break;
-
             case R.id.regbutton:
                 register();
                 startActivity(new Intent(this, MainActivity.class));

@@ -55,7 +55,7 @@
             android:background="@drawable/textbox"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Your Message here"
+            android:hint="Message"
             android:inputType="textMultiLine"
             android:padding="20dp" />
 

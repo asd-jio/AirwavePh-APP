@@ -13,7 +13,7 @@
         android:id="@+id/botNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_y="710dp"
+        android:layout_y="770dp"
         android:background="#6e6e6e"
         app:menu="@menu/bottom_nav_menu">
 

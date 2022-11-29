@@ -6,17 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
-public class Ticketing extends AppCompatActivity implements View.OnClickListener{
+public class Ticketing extends AppCompatActivity implements View.OnClickListener {
 
     private Button itDept, accounting, technical, others;
+
     private ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticketing);
+
+
 
         itDept = (Button) findViewById(R.id.itDept);
         itDept.setOnClickListener(this);
@@ -31,8 +35,9 @@ public class Ticketing extends AppCompatActivity implements View.OnClickListener
         others.setOnClickListener(this);
 
     }
-    public void onClick(View v){
-        switch (v.getId()){
+
+    public void onClick(View v) {
+        switch (v.getId()) {
             case (R.id.itDept):
                 startActivity(new Intent(Ticketing.this, TicketingIT.class));
                 break;
@@ -48,6 +53,9 @@ public class Ticketing extends AppCompatActivity implements View.OnClickListener
             case (R.id.others):
                 startActivity(new Intent(Ticketing.this, OtherConcerns.class));
                 break;
+
         }
     }
+
+
 }

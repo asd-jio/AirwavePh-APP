@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.loginwithauth.databinding.ActivityHomePageBinding;
 import com.example.loginwithauth.databinding.ActivityMainBinding;
@@ -18,13 +19,20 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class HomePage extends AppCompatActivity {
 
+    private long backPress;
+    private Toast backToast;
+
     private Button planupdown, newsletter, request, ticket;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home_page);
+
+
 
         replaceFragment(new HomeFragment());
         Log.d("MYTAG", "Fragment Initiated");
@@ -59,6 +67,21 @@ public class HomePage extends AppCompatActivity {
             return true;
         });
 
+
+    }
+    @Override
+    public void onBackPressed() {
+
+        if (backPress + 2000 > System.currentTimeMillis()){
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+        else {
+            backToast = Toast.makeText(getApplicationContext(),"Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPress = System.currentTimeMillis();
     }
 
 
@@ -68,7 +91,6 @@ public class HomePage extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
-
 
 
 }

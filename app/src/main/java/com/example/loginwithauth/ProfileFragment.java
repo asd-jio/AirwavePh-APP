@@ -74,10 +74,10 @@ public class ProfileFragment extends Fragment {
                     String town = userProfile.town;
                     String province = userProfile.province;
 
-                    emailText.setText("Email Address: " + email);
-                    fullName.setText("Name: " + fName);
-                    accNum.setText("Account Number: " + aNum);
-                    contactNum.setText("Contact Number: " + cNum);
+                    emailText.setText(" " + email);
+                    fullName.setText(fName);
+                    accNum.setText(aNum);
+                    contactNum.setText(cNum);
                     fullAddress.setText(hNum + " " + Street + " " + barangay + " " + town + " "+ province);
 //                    firstNameText.setText(firstName);
 //                    lastNameText.setText(lastName);

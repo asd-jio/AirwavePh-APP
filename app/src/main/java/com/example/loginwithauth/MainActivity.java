@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView register, admin;
+    private TextView register;
     private EditText logemail, logpassword;
     private Button login;
 
@@ -36,9 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
-
-        admin = (TextView) findViewById(R.id.admin);
-        admin.setOnClickListener(this);
 
         login = (Button) findViewById(R.id.loginbutton);
         login.setOnClickListener(this);
@@ -61,9 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 userLogin();
                 break;
 
-            case R.id.admin:
-                startActivity(new Intent(this, Register.class));
-                break;
         }
     }
 
@@ -101,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     startActivity(new Intent(MainActivity.this, HomePage.class));
-
+                    finish();
 
                 }else{
                     Toast.makeText(MainActivity.this, "Failed to login, incorrect credentials", Toast.LENGTH_LONG).show();

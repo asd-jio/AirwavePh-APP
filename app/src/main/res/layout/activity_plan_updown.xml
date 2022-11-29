@@ -4,54 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_color"
+    android:background="@drawable/bg_color4"
     tools:context=".PlanUpdown">
 
     <Spinner
         android:id="@+id/locationSpinner"
-        android:layout_width="409dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:drawable/spinner_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/servicetypeSpinner" />
 
     <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="0dp"
+        android:id="@+id/servicetypeSpinner"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:drawable/spinner_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Spinner
         android:id="@+id/currentplan"
-        android:layout_width="409dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:drawable/spinner_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationSpinner" />
 
     <Spinner
         android:id="@+id/newplan"
-        android:layout_width="409dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:drawable/spinner_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentplan" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submitonplan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="78dp"
-        android:text="Submit request"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="161dp"
+        android:background="@drawable/buttons2"
+        android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newplan" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="369dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Please fill the form below"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="367dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="53dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bandwidthbanner" />
 </androidx.constraintlayout.widget.ConstraintLayout>

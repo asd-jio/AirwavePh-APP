@@ -86,17 +86,7 @@
                 android:background="@drawable/buttons2"
                 android:text="Register" />
 
-            <TextView
-                android:id="@+id/admin"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="119dp"
-                android:layout_marginEnd="138dp"
-                android:layout_marginBottom="114dp"
-                android:fontFamily="sans-serif-light"
-                android:text="Login as Administrator"
-                android:textColor="#FFFFFF"
-                android:textStyle="italic" />
+
 
         </LinearLayout>
     </ScrollView>
