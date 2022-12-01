@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,16 +21,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     //private TextView welcomeText, emailText, firstNameText, lastNameText;
     //private TextView fullName;
 
     private FirebaseUser user;
     private DatabaseReference reference;
-
     private String userID;
-
+    private FirebaseAuth mAuth;
     Intent intent;
     Activity context;
 
@@ -41,6 +41,7 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         return view;
+
     }
 
     public void onStart(){
@@ -49,8 +50,12 @@ public class ProfileFragment extends Fragment {
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("users");
         userID = user.getUid();
+        mAuth = FirebaseAuth.getInstance();
 
 
+
+        final Button logout = (Button) context.findViewById(R.id.logout);
+        logout.setOnClickListener(this);
         final TextView fullName = (TextView) context.findViewById(R.id.fullName);
         final TextView emailText = (TextView) context.findViewById(R.id.emailAddress);
         final TextView accNum = (TextView) context.findViewById(R.id.accountNumber);
@@ -89,5 +94,24 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+
+
     }
+    public void onClick (View v){
+        switch (v.getId()){
+            case R.id.editprofile:
+                break;
+
+            case R.id.logout:{
+                mAuth.signOut();
+                Intent intent = new Intent(context, MainActivity.class);
+                startActivity(intent);
+                }
+        }
+    }
+
+
+
+
+
 }

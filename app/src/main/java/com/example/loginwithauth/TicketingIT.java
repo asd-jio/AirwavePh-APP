@@ -106,6 +106,7 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
 
         Toast.makeText(TicketingIT.this,"Your Ticket has been received. Please wait while we process your ticket. Thank You!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, Ticketing.class));
+        finish();
 
     }
 //

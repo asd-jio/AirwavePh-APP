@@ -23,6 +23,7 @@ public class Profile extends AppCompatActivity {
     private Button logout;
     private FirebaseUser user;
     private DatabaseReference reference;
+    private FirebaseAuth mAuth;
 
 
     private String userID;
@@ -32,12 +33,14 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-       // logout = (Button) findViewById(R.id.logoutbutton);
+        logout = (Button) findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Profile.this, MainActivity.class));
+                mAuth.signOut();
+                Intent intent = new Intent(new Intent(Profile.this, MainActivity.class));
+                startActivity(intent);
+                finish();
             }
         });
 
