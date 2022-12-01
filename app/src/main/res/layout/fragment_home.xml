@@ -69,11 +69,12 @@
             tools:layout_editor_absoluteY="401dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/welcome1"
+            android:layout_width="218dp"
             android:layout_height="wrap_content"
             android:layout_x="14dp"
+
             android:layout_y="172dp"
-            android:text="Hello, Username!"
             android:textColor="@color/white"
             android:textSize="25dp" />
 

@@ -74,10 +74,18 @@
             tools:layout_editor_absoluteY="602dp" />
 
         <TextView
-            android:id="@+id/senderInfo"
+            android:id="@+id/senderNumber"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:layout_y="610dp"
+            android:layout_height="30dp"
+            android:layout_y="620dp"
+            android:textColor="#F4F4F4"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/senderName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_y="582dp"
             android:textColor="#F4F4F4"
             android:textSize="20sp" />
     </AbsoluteLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_gravity="center"
+	android:orientation="vertical"
+	android:background="@color/white"
+	android:layout_width="400dp"
+	android:layout_height="100dp"
+	android:layout_margin="5dp">
+
+	<TextView
+		android:id="@+id/subject"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="start"
+		android:padding="10dp"
+		android:text="Song"
+		android:textSize="25sp" />
+
+	<TextView
+		android:id="@+id/senderNumber"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="start"
+		android:padding="10dp"
+		android:text="artis"
+		android:textSize="15sp" />
+
+</LinearLayout>
