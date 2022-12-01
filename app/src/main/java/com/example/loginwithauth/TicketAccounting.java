@@ -98,7 +98,7 @@ public class TicketAccounting extends AppCompatActivity implements View.OnClickL
             return;
 
         }
-        reference = FirebaseDatabase.getInstance().getReference().child("Messages/ ITDept");
+        reference = FirebaseDatabase.getInstance().getReference().child("Messages/ AccountingDept");
 
         Messages messages = new Messages(subText, msgMain, senderNum, sender);
 

@@ -98,7 +98,7 @@ public class OtherConcerns extends AppCompatActivity implements View.OnClickList
             return;
 
         }
-        reference = FirebaseDatabase.getInstance().getReference().child("Messages/ ITDept");
+        reference = FirebaseDatabase.getInstance().getReference().child("Messages/ Others");
 
         Messages messages = new Messages(subText, msgMain, senderNum, sender);
 

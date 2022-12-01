@@ -98,7 +98,7 @@ public class TicketingTech extends AppCompatActivity implements View.OnClickList
             return;
 
         }
-        reference = FirebaseDatabase.getInstance().getReference().child("Messages/ ITDept");
+        reference = FirebaseDatabase.getInstance().getReference().child("Messages/ TechDept");
 
         Messages messages = new Messages(subText, msgMain, senderNum, sender);
 
