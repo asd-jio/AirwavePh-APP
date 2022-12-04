@@ -12,9 +12,14 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_width="409dp"
+        android:layout_height="749dp"
+        android:layout_marginBottom="46dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -24,12 +29,19 @@
             android:layout_marginTop="80dp"
             app:srcCompat="@drawable/airwave_logo" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.DeviceDefault.ProgressBar.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp" />
+
         <EditText
             android:id="@+id/emailinput"
             android:layout_width="350dp"
             android:layout_height="48dp"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/textbox"

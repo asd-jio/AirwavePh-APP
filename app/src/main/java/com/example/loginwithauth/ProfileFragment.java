@@ -1,7 +1,10 @@
 package com.example.loginwithauth;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -30,8 +33,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private DatabaseReference reference;
     private String userID;
     private FirebaseAuth mAuth;
-    Intent intent;
     Activity context;
+
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         reference = FirebaseDatabase.getInstance().getReference("users");
         userID = user.getUid();
         mAuth = FirebaseAuth.getInstance();
+
 
 
 
@@ -97,6 +101,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
 
     }
+
+
+
     public void onClick (View v){
         switch (v.getId()){
             case R.id.editprofile:
@@ -106,6 +113,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 mAuth.signOut();
                 Intent intent = new Intent(context, MainActivity.class);
                 startActivity(intent);
+                break;
                 }
         }
     }

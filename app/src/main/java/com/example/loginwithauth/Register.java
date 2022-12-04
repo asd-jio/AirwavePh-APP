@@ -57,6 +57,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             case R.id.regbutton:
                 register();
                 startActivity(new Intent(this, MainActivity.class));
+                finish();
                 break;
         }
 

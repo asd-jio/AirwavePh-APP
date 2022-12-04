@@ -51,16 +51,21 @@ public class InboxFragment extends Fragment {
         listMsgs = new ArrayList();
         myAdapter = new Adapter(getActivity(), listMsgs);
         recyclerView.setAdapter(myAdapter);
-        reference.addValueEventListener(new ValueEventListener() {
+       reference.addValueEventListener(new ValueEventListener(){
+
 
             public void onDataChange(DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
-                    Messages msgs = dataSnapshot.getValue(Messages.class);
-                    listMsgs.add(msgs);
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Messages msgs = dataSnapshot.getValue(Messages.class);
+                        //if (msgs != null) {
+                            listMsgs.add(msgs);
+                        //}
+                    }
+                    myAdapter.notifyDataSetChanged();
                 }
-                myAdapter.notifyDataSetChanged();
-            }
+
 
             public void onCancelled(DatabaseError error) {
             }

@@ -9,7 +9,7 @@ public class Messages {
     public Messages(){
 
     }
-    public Messages(String subText, String msgMain, String senderNum, String sender) {
+    public Messages(String subText, String msgMain, String senderNum, String sender ) {
         this.subject = subText;
         this.message = msgMain;
         this.senderNumber = senderNum;

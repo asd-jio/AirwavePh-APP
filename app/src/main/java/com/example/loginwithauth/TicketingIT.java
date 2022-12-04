@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +28,15 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
     private FirebaseUser user;
     private String userID;
     private TextView senderNumber, senderName;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ticketing_layout);
+
+        progressBar = (ProgressBar)findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.GONE);
 
         etSubjectText = (EditText) findViewById(R.id.subjectText);
         etMainMessage = (EditText) findViewById(R.id.mainMessage);
@@ -98,6 +103,7 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
             return;
 
         }
+        progressBar.setVisibility(View.VISIBLE);
         reference = FirebaseDatabase.getInstance().getReference().child("Messages/ ITDept");
 
         Messages messages = new Messages(subText, msgMain, senderNum, sender);
@@ -105,8 +111,9 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
         reference.push().setValue(messages);
 
         Toast.makeText(TicketingIT.this,"Your Ticket has been received. Please wait while we process your ticket. Thank You!", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, Ticketing.class));
-        finish();
+        Intent intent = new Intent(TicketingIT.this, Ticketing.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
 
     }
 //

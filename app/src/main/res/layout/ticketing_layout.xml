@@ -88,5 +88,13 @@
             android:layout_y="582dp"
             android:textColor="#F4F4F4"
             android:textSize="20sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="@android:style/Widget.DeviceDefault.ProgressBar.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="137dp"
+            android:layout_y="360dp" />
     </AbsoluteLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

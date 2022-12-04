@@ -65,7 +65,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 }
             }
 
+
             public void onCancelled(DatabaseError error) {
+
+
             }
         });
         planSub = (Button) context.findViewById(R.id.planSubscription);
@@ -107,5 +110,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
 
         }
+
     }
 }

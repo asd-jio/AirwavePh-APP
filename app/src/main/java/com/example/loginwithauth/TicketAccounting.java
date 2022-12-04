@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +29,15 @@ public class TicketAccounting extends AppCompatActivity implements View.OnClickL
     private FirebaseUser user;
     private String userID;
     private TextView senderNumber, sender;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ticketing_layout);
+
+        progressBar = (ProgressBar)findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.GONE);
 
         etSubjectText = (EditText) findViewById(R.id.subjectText);
         etMainMessage = (EditText) findViewById(R.id.mainMessage);
@@ -98,6 +104,7 @@ public class TicketAccounting extends AppCompatActivity implements View.OnClickL
             return;
 
         }
+        progressBar.setVisibility(View.VISIBLE);
         reference = FirebaseDatabase.getInstance().getReference().child("Messages/ AccountingDept");
 
         Messages messages = new Messages(subText, msgMain, senderNum, sender);
@@ -105,7 +112,9 @@ public class TicketAccounting extends AppCompatActivity implements View.OnClickL
         reference.push().setValue(messages);
 
         Toast.makeText(TicketAccounting.this,"Your Ticket has been received. Please wait while we process your ticket. Thank You!", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, Ticketing.class));
+        Intent intent = new Intent(TicketAccounting.this, Ticketing.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
 
     }
 //
