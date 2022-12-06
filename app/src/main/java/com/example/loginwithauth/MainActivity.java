@@ -10,6 +10,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,15 +26,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText logemail, logpassword;
     private Button login;
 
+    ProgressBar progressBar;
+    RelativeLayout container;
+
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
 
+
+
+        progressBar = (ProgressBar)findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.GONE);
 
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
@@ -49,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+
+
+
+
         switch (v.getId()){
             case R.id.register:
                 startActivity(new Intent(this, Register.class));
@@ -62,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void userLogin() {
+
 
         String email = logemail.getText().toString().trim();
         String password = logpassword.getText().toString().trim();
@@ -87,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             logpassword.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
 
 
 
@@ -95,12 +111,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     startActivity(new Intent(MainActivity.this, HomePage.class));
+                    container.setVisibility(View.GONE);
                     finish();
 
                 }else{
                     Toast.makeText(MainActivity.this, "Failed to login, incorrect credentials", Toast.LENGTH_LONG).show();
                 }
+
             }
+
         });
 
     }
