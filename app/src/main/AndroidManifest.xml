@@ -10,49 +10,64 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginwithAuth">
         <activity
+            android:name=".ViewMessage"
+            android:exported="false" />
+        <activity
+            android:name=".InboxAccounting"
+            android:exported="false" />
+        <activity
+            android:name=".InboxIT"
+            android:exported="false" />
+        <activity
+            android:name=".InboxOthers"
+            android:exported="false" />
+        <activity
+            android:name=".InboxTech"
+            android:exported="false" />
+        <activity
             android:name=".help3"
             android:exported="false"
-            android:label="Help/Support"/>
+            android:label="Help/Support" />
         <activity
             android:name=".help2"
             android:exported="false"
-            android:label="Help/Support"/>
+            android:label="Help/Support" />
         <activity
             android:name=".help1"
             android:exported="false"
-            android:label="Help/Support"/>
+            android:label="Help/Support" />
         <activity
             android:name=".TheDevs"
             android:exported="false"
-            android:label="The Devs"/>
+            android:label="The Devs" />
         <activity
             android:name=".ContactUs"
             android:exported="false"
-            android:label="Contact Us"/>
+            android:label="Contact Us" />
         <activity
             android:name=".AboutUs"
             android:exported="false"
-            android:label="About Us"/>
+            android:label="About Us" />
         <activity
             android:name=".OtherConcerns"
             android:exported="false"
-            android:label="Other Concerns"/>
+            android:label="Other Concerns" />
         <activity
             android:name=".TicketingTech"
             android:exported="false"
-            android:label="Technical Department"/>
+            android:label="Technical Department" />
         <activity
             android:name=".TicketingIT"
             android:exported="false"
-            android:label="IT Department"/>
+            android:label="IT Department" />
         <activity
             android:name=".TicketAccounting"
             android:exported="false"
-            android:label="Accounting Department"/>
+            android:label="Accounting Department" />
         <activity
             android:name=".Inbox"
             android:exported="false"
-            android:label="Inbox"/>
+            android:label="Inbox" />
         <activity
             android:name=".HelpPage"
             android:exported="false"
@@ -61,34 +76,31 @@
         <activity
             android:name=".Ticketing"
             android:exported="false"
-            android:label="Submit a Ticket"/>
+            android:label="Submit a Ticket" />
         <activity
             android:name=".RequestSOA"
             android:exported="false"
-            android:label="Request SOA"/>
+            android:label="Request SOA" />
         <activity
             android:name=".Newsletter"
             android:exported="false"
-            android:label="Newsletter"/>
+            android:label="Newsletter" />
         <activity
             android:name=".PlanUpdown"
             android:exported="false"
-            android:label="Plan Upgrade/Downgrade"/>
+            android:label="Plan Upgrade/Downgrade" />
         <activity
             android:name=".HomePage"
-            android:label="Dashboard"
             android:exported="false"
-            android:theme="@style/Theme.LoginwithAuth.NoActionBar"/>
-
+            android:label="Dashboard"
+            android:theme="@style/Theme.LoginwithAuth.NoActionBar" />
         <activity
             android:name=".Dashboard"
-            android:exported="false"
-            />
+            android:exported="false" />
         <activity
             android:name=".Profile"
-            android:label="User Profile"
             android:exported="false"
-            />
+            android:label="User Profile" />
         <activity
             android:name=".Register"
             android:exported="false"
@@ -101,7 +113,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <meta-data
