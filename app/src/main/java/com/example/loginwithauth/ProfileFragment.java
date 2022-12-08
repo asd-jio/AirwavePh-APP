@@ -56,8 +56,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         mAuth = FirebaseAuth.getInstance();
 
 
-
-
         final Button logout = (Button) context.findViewById(R.id.logout);
         logout.setOnClickListener(this);
         final TextView fullName = (TextView) context.findViewById(R.id.fullName);
@@ -106,13 +104,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     public void onClick (View v){
         switch (v.getId()){
-            case R.id.editprofile:
-                break;
 
             case R.id.logout:{
                 mAuth.signOut();
-                Intent intent = new Intent(context, MainActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(context, MainActivity.class);
+                startActivity(i);
                 break;
                 }
         }
