@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class InboxFragment extends Fragment implements View.OnClickListener{
     Activity context;
-    Intent intent;
+        Intent intent;
 
     private Button itDept, accountDept, techDept, others;
 
