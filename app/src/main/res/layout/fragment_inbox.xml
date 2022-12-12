@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_color"
+    android:background="@drawable/bg_color3"
     tools:context=".InboxFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,40 +11,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="50dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Inboxes"
+            android:textStyle="bold"
             android:layout_marginBottom="100dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Inboxes"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="45dp" />
 
         <Button
             android:id="@+id/itDept"
+            android:background="@drawable/buttons"
             android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
             android:layout_height="100dp"
-            android:text="IT Dept" />
+            android:text="IT Department"/>
 
         <Button
             android:id="@+id/acctDept"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/buttons2"
             android:text="Accounting Department" />
 
         <Button
             android:id="@+id/techDept"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/buttons"
             android:text="Technical Department" />
 
         <Button
             android:id="@+id/others"
             android:layout_width="match_parent"
+            android:background="@drawable/buttons2"
             android:layout_height="100dp"
             android:text="Others" />
 

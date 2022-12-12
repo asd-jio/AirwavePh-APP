@@ -1,4 +1,4 @@
-package com.example.loginwithauth;
+    package com.example.loginwithauth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
