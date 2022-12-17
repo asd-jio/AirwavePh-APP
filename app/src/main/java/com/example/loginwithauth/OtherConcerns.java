@@ -27,7 +27,7 @@ public class OtherConcerns extends AppCompatActivity implements View.OnClickList
     private DatabaseReference reference;
     private FirebaseUser user;
     private String userID;
-    private TextView senderNumber, sender;
+    private TextView senderNumber, senderName, senderEmail;
     ProgressBar progressBar;
 
     @Override
@@ -41,7 +41,8 @@ public class OtherConcerns extends AppCompatActivity implements View.OnClickList
         etSubjectText = (EditText) findViewById(R.id.subjectText);
         etMainMessage = (EditText) findViewById(R.id.mainMessage);
         senderNumber = (TextView) findViewById(R.id.senderNumber);
-        sender = (TextView) findViewById(R.id.senderName);
+        senderName = (TextView) findViewById(R.id.senderName);
+        senderEmail = (TextView) findViewById(R.id.senderEmail);
 
 
         submitTicket = findViewById(R.id.submitButton);
@@ -63,9 +64,11 @@ public class OtherConcerns extends AppCompatActivity implements View.OnClickList
 
                     String name = user.fname;
                     String acctNum = user.Anum;
+                    String email = user.email;
 
-                    sender.setText(name);
+                    senderName.setText(name);
                     senderNumber.setText(acctNum);
+                    senderEmail.setText(email);
                 }
             }
 
@@ -90,7 +93,13 @@ public class OtherConcerns extends AppCompatActivity implements View.OnClickList
         String subText = etSubjectText.getText().toString().trim();
         String  msgMain = etMainMessage.getText().toString().trim();
         String senderNum = senderNumber.getText().toString().trim();
-        String sender = senderNumber.getText().toString().trim();
+        String sender = senderName.getText().toString().trim();
+        String email = senderEmail.getText().toString().trim();
+        String status = "queued";
+        String key = reference.child("posts").push().getKey();
+        String category = "";
+        String response = "";
+
 
         if (subText.isEmpty()) {
             etSubjectText.setError("Please input Subject");
@@ -104,9 +113,9 @@ public class OtherConcerns extends AppCompatActivity implements View.OnClickList
 
         }
         progressBar.setVisibility(View.VISIBLE);
-        reference = FirebaseDatabase.getInstance().getReference().child("Messages/ Others");
+        reference = FirebaseDatabase.getInstance().getReference().child("Other  Concerns");
 
-        Messages messages = new Messages(subText, msgMain, senderNum, sender);
+        Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, response, category);
 
         reference.push().setValue(messages);
 

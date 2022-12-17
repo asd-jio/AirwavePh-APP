@@ -3,17 +3,24 @@ package com.example.loginwithauth;
 
 
 public class Messages {
-    public String message, senderName, senderNumber, subject;
+    public String subject, message, senderName, senderNumber, senderEmail, status, key, category, response;
 
 
     public Messages(){
 
     }
-    public Messages(String subText, String msgMain, String senderNum, String sender ) {
+    public Messages(String subText, String msgMain, String sender, String senderNum, String email, String status, String key, String category, String response) {
         this.subject = subText;
         this.message = msgMain;
         this.senderNumber = senderNum;
         this.senderName = sender;
+        this.senderEmail = email;
+        this.status = status;
+        this.key = key;
+        this.category = category;
+        this.response = response;
+
+
     }
 
     public String getSubject() {
@@ -24,11 +31,19 @@ public class Messages {
         return this.message;
     }
 
-    public String getSenderInfo() {
+    public String getSenderName() {
         return this.senderName;
     }
 
     public String getSenderNumber() {
         return this.senderNumber;
+    }
+
+    public String getSenderEmail() {
+        return this.senderEmail;
+    }
+
+    public String getStatus() {
+        return this.status;
     }
 }

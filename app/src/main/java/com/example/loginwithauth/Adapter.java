@@ -37,8 +37,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Messages msgs = msgList.get(position);
-        holder. subject.setText(msgs.getSubject());
+        holder.subject.setText(msgs.getSubject());
         holder.senderNumber.setText(msgs.getSenderNumber());
+        holder.senderEmail.setText(msgs.getSenderEmail());
 
     }
 
@@ -49,7 +50,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView senderNumber, subject;
+        TextView senderNumber, subject, senderEmail;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

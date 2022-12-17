@@ -29,7 +29,7 @@ public class InboxIT extends AppCompatActivity {
         setContentView(R.layout.activity_inbox_layout);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        reference = FirebaseDatabase.getInstance().getReference("Messages/ ITDept");
+        reference = FirebaseDatabase.getInstance().getReference("ITDept");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -27,7 +27,7 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
     private DatabaseReference reference;
     private FirebaseUser user;
     private String userID;
-    private TextView senderNumber, senderName;
+    private TextView senderNumber, senderName, senderEmail;
     ProgressBar progressBar;
 
     @Override
@@ -42,6 +42,7 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
         etMainMessage = (EditText) findViewById(R.id.mainMessage);
         senderNumber = (TextView) findViewById(R.id.senderNumber);
         senderName = (TextView) findViewById(R.id.senderName);
+        senderEmail = (TextView) findViewById(R.id.senderEmail);
 
 
         submitTicket = findViewById(R.id.submitButton);
@@ -91,6 +92,12 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
         String  msgMain = etMainMessage.getText().toString().trim();
         String senderNum = senderNumber.getText().toString().trim();
         String sender = senderName.getText().toString().trim();
+        String email = senderEmail.getText().toString().trim();
+        String status = "queued";
+        String key = reference.child("posts").push().getKey();
+        String category = "";
+        String response = "";
+
 
         if (subText.isEmpty()) {
             etSubjectText.setError("Please input Subject");
@@ -104,11 +111,12 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
 
         }
         progressBar.setVisibility(View.VISIBLE);
-        reference = FirebaseDatabase.getInstance().getReference().child("Messages/ ITDept");
+        reference = FirebaseDatabase.getInstance().getReference().child("ITDept Tickets");
 
-        Messages messages = new Messages(subText, msgMain, senderNum, sender);
+        Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, response, category);
 
         reference.push().setValue(messages);
+
 
         Toast.makeText(TicketingIT.this,"Your Ticket has been received. Please wait while we process your ticket. Thank You!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(TicketingIT.this, Ticketing.class);

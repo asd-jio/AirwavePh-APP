@@ -21,12 +21,12 @@
         <TextView
             android:id="@+id/dept_text"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="84dp"
             android:layout_y="15dp"
             android:fontFamily="sans-serif"
             android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -37,7 +37,7 @@
             android:id="@+id/subjectText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_y="160dp"
+            android:layout_y="112dp"
             android:background="@drawable/textbox"
             android:ems="10"
             android:hint="Subject"
@@ -51,7 +51,7 @@
             android:id="@+id/mainMessage"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:layout_y="230dp"
+            android:layout_y="180dp"
             android:background="@drawable/textbox"
             android:ems="10"
             android:gravity="start|top"
@@ -77,7 +77,7 @@
             android:id="@+id/senderNumber"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_y="620dp"
+            android:layout_y="580dp"
             android:textColor="#F4F4F4"
             android:textSize="20sp" />
 
@@ -85,7 +85,14 @@
             android:id="@+id/senderName"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_y="582dp"
+            android:layout_y="535dp"
+            android:textColor="#F4F4F4"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/senderEmail"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_y="620dp"
             android:textColor="#F4F4F4"
             android:textSize="20sp" />
 
