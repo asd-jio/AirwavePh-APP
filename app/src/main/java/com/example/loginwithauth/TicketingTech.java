@@ -38,7 +38,7 @@ public class TicketingTech extends AppCompatActivity implements View.OnClickList
         progressBar = (ProgressBar)findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.GONE);
 
-        etSubjectText = (EditText) findViewById(R.id.subjectText);
+       // etSubjectText = (EditText) findViewById(R.id.subjectText);
         etMainMessage = (EditText) findViewById(R.id.mainMessage);
         senderNumber = (TextView) findViewById(R.id.senderNumber);
         senderName = (TextView) findViewById(R.id.senderName);
@@ -112,7 +112,7 @@ public class TicketingTech extends AppCompatActivity implements View.OnClickList
             return;
 
         }
-        reference = FirebaseDatabase.getInstance().getReference().child("Tech Tickets");
+        reference = FirebaseDatabase.getInstance().getReference().child("Delivered Tickets");
 
         Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, response, category);
 

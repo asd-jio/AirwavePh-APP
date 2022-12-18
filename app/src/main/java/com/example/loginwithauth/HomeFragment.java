@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -40,7 +38,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         // Inflate the layout for this fragment
         context = getActivity();
@@ -83,7 +80,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         ticket = (Button) context.findViewById(R.id.ticket);
         ticket.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -93,19 +89,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 intent = new Intent(context, PlanUpdown.class);
                 startActivity(intent);
                 break;
-
             case R.id.newsletter:
                 intent = new Intent(context, Newsletter.class);
                 startActivity(intent);
                 break;
-
             case R.id.request:
                 intent = new Intent(context, RequestSOA.class);
                 startActivity(intent);
                 break;
-
             case R.id.ticket:
-                intent = new Intent(context, Ticketing.class);
+                intent = new Intent(context, SubmitTicket.class);
                 startActivity(intent);
                 break;
 

@@ -27,10 +27,11 @@ public class PlanUpdown extends AppCompatActivity implements View.OnClickListene
         submit = findViewById(R.id.submitonplan);
         submit.setOnClickListener(this);
 
+        String wired = "wired";
         servicetypespinner = (Spinner) findViewById(R.id.servicetypeSpinner);
         servicetype = new ArrayList<>();
         servicetype.add("Select Service type");
-        servicetype.add("Wired");
+        servicetype.add(wired);
         servicetype.add("Wireless");
 
         locationSpinner = (Spinner) findViewById(R.id.locationSpinner);

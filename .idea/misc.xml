@@ -3,6 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/drawable/textbox.xml" value="0.309" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/activity_inbox.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/activity_inbox_layout.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/activity_main.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/activity_plan_updown.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/activity_register.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/activity_the_devs.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/activity_view_message.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/custom_dialog.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/design1.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/fragment_help.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/fragment_home.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/fragment_inbox.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/fragment_profile.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/inbox_layout.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/layout/ticketing_layout.xml" value="0.35597826086956524" />
+        <entry key="..\:/Airwave-New/AirwavePh-APP/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/AirwavePh-APP/app/src/main/res/drawable/buttons-1.xml" value="0.1885" />
         <entry key="..\:/AirwavePh-APP/app/src/main/res/drawable/buttons.xml" value="0.1885" />
         <entry key="..\:/AirwavePh-APP/app/src/main/res/drawable/buttons2.xml" value="0.1885" />

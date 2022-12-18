@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,15 +21,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class TicketingIT extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
+
+public class SubmitTicket extends AppCompatActivity implements View.OnClickListener {
 
     Button submitTicket;
-    private EditText etSubjectText, etMainMessage;
+    private EditText  etMainMessage;
     private TextView tvSender;
     private DatabaseReference reference;
     private FirebaseUser user;
     private String userID;
     private TextView senderNumber, senderName, senderEmail;
+    private Spinner  Subjectspinner;
+    private List<String>  subject;
+
+
+
     ProgressBar progressBar;
 
     @Override
@@ -38,7 +48,25 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
         progressBar = (ProgressBar)findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.GONE);
 
-        etSubjectText = (EditText) findViewById(R.id.subjectText);
+        String connection = "Connection";
+        String router = "Router";
+        String others = "Others";
+        String antenna = "Antenna";
+        String wire = "Wire";
+
+        Subjectspinner = (Spinner) findViewById(R.id.servicetypeSpinner);
+        subject = new ArrayList<>();
+        subject.add("Select Issue");
+        subject.add(connection);
+        subject.add(router);
+        subject.add(others);
+        subject.add(antenna);
+        subject.add(wire);
+
+        Subjectspinner.setAdapter(new ArrayAdapter<>(this,
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                subject));
+
         etMainMessage = (EditText) findViewById(R.id.mainMessage);
         senderNumber = (TextView) findViewById(R.id.senderNumber);
         senderName = (TextView) findViewById(R.id.senderName);
@@ -49,7 +77,6 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
         submitTicket.setOnClickListener(this);
 
         tvSender = (TextView) findViewById(R.id.dept_text);
-        tvSender.setText("Concerns relating to network contingencies and the likes fall under IT DEPARTMENT. Make sure to be as detailed as possible so we can get you the most relevant response in the most timely manner. ");
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("users");
@@ -64,9 +91,11 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
 
                     String name = user.fname;
                     String acctNum = user.Anum;
+                    String userEmail = user.email;
 
                     senderName.setText(name);
                     senderNumber.setText(acctNum);
+                    senderEmail.setText(userEmail);
                 }
             }
 
@@ -88,7 +117,7 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
     }
 
     private void submit() {
-        String subText = etSubjectText.getText().toString().trim();
+        String subText = Subjectspinner.getSelectedItem().toString();
         String  msgMain = etMainMessage.getText().toString().trim();
         String senderNum = senderNumber.getText().toString().trim();
         String sender = senderName.getText().toString().trim();
@@ -99,11 +128,6 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
         String response = "";
 
 
-        if (subText.isEmpty()) {
-            etSubjectText.setError("Please input Subject");
-            etSubjectText.requestFocus();
-            return;
-        }
         if (msgMain.isEmpty()) {
             etMainMessage.setError("Ticket content cannot be empty");
             etMainMessage.requestFocus();
@@ -111,18 +135,16 @@ public class TicketingIT extends AppCompatActivity implements View.OnClickListen
 
         }
         progressBar.setVisibility(View.VISIBLE);
-        reference = FirebaseDatabase.getInstance().getReference().child("ITDept Tickets");
+        reference = FirebaseDatabase.getInstance().getReference().child("Delivered Tickets");
 
         Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, response, category);
 
         reference.push().setValue(messages);
 
-
-        Toast.makeText(TicketingIT.this,"Your Ticket has been received. Please wait while we process your ticket. Thank You!", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(TicketingIT.this, Ticketing.class);
+        Toast.makeText(SubmitTicket.this,"Your Ticket has been received. Please wait while we process your ticket. Thank You!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(SubmitTicket.this, HomePage.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
 
     }
-//
 }
