@@ -33,7 +33,7 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
     private FirebaseUser user;
     private String userID;
     private TextView senderNumber, senderName, senderEmail;
-    private Spinner  Subjectspinner;
+    private Spinner subjectSpinner;
     private List<String>  subject;
 
 
@@ -54,7 +54,7 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         String antenna = "Antenna";
         String wire = "Wire";
 
-        Subjectspinner = (Spinner) findViewById(R.id.servicetypeSpinner);
+        subjectSpinner = (Spinner) findViewById(R.id.servicetypeSpinner);
         subject = new ArrayList<>();
         subject.add("Select Issue");
         subject.add(connection);
@@ -63,7 +63,7 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         subject.add(antenna);
         subject.add(wire);
 
-        Subjectspinner.setAdapter(new ArrayAdapter<>(this,
+        subjectSpinner.setAdapter(new ArrayAdapter<>(this,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
                 subject));
 
@@ -117,7 +117,7 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
     }
 
     private void submit() {
-        String subText = Subjectspinner.getSelectedItem().toString();
+        String subText = subjectSpinner.getSelectedItem().toString();
         String  msgMain = etMainMessage.getText().toString().trim();
         String senderNum = senderNumber.getText().toString().trim();
         String sender = senderName.getText().toString().trim();
