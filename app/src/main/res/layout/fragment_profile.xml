@@ -92,7 +92,7 @@
             android:id="@+id/logout"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_x="204dp"
+            android:layout_x="130dp"
             android:layout_y="669dp" />
 
         <ImageView
