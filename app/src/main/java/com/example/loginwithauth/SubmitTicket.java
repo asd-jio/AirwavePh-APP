@@ -21,7 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class SubmitTicket extends AppCompatActivity implements View.OnClickListener {
@@ -35,6 +37,9 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
     private TextView senderNumber, senderName, senderEmail;
     private Spinner subjectSpinner;
     private List<String>  subject;
+    private Calendar calendar;
+    private SimpleDateFormat dateFormat;
+    private String date;
 
 
 
@@ -45,6 +50,11 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ticketing_layout);
 
+        calendar = Calendar.getInstance();
+        dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm");
+        date = dateFormat.format(calendar.getTime());
+        System.out.println(date);
+
         progressBar = (ProgressBar)findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.GONE);
 
@@ -53,6 +63,8 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         String others = "Others";
         String antenna = "Antenna";
         String wire = "Wire";
+        String receipt = "Receipt";
+
 
         subjectSpinner = (Spinner) findViewById(R.id.servicetypeSpinner);
         subject = new ArrayList<>();
@@ -62,6 +74,7 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         subject.add(others);
         subject.add(antenna);
         subject.add(wire);
+        subject.add(receipt);
 
         subjectSpinner.setAdapter(new ArrayAdapter<>(this,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
@@ -124,8 +137,30 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         String email = senderEmail.getText().toString().trim();
         String status = "queued";
         String key = reference.child("posts").push().getKey();
-        String category = "";
         String response = "";
+        String category = "";
+        String time = date;
+
+
+        switch (subText){
+            case "Connection":
+                category = "IT Department";
+                break;
+            case "Router":
+            case "Antenna":
+            case "Wires":
+                category = "Technical Department";
+                break;
+            case "Receipt":
+                category = "Accounting";
+                break;
+            case "Others":
+                category = "Other Concerns";
+                break;
+
+            default:
+
+        }
 
 
         if (msgMain.isEmpty()) {
@@ -135,11 +170,17 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
 
         }
         progressBar.setVisibility(View.VISIBLE);
-        reference = FirebaseDatabase.getInstance().getReference().child("Delivered Tickets");
+//        if (subText == "Connection") {
+//            reference = FirebaseDatabase.getInstance().getReference("Connection").child("Ticket"+key);
+//        }
+//        if (subText == "Router") {
+//            reference = FirebaseDatabase.getInstance().getReference("Router").child("Ticket"+key);
+//        }
 
-        Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, response, category);
+        reference = FirebaseDatabase.getInstance().getReference("New Tickets").child(key);
+        Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, category, response, time);
 
-        reference.push().setValue(messages);
+        reference.setValue(messages);
 
         Toast.makeText(SubmitTicket.this,"Your Ticket has been received. Please wait while we process your ticket. Thank You!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(SubmitTicket.this, HomePage.class);

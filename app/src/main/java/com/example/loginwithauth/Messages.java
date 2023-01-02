@@ -3,13 +3,13 @@ package com.example.loginwithauth;
 
 
 public class Messages {
-    public String subject, message, senderName, senderNumber, senderEmail, status, key, category, response;
+    public String subject, message, senderName, senderNumber, senderEmail, status, key, category, response, time;
 
 
     public Messages(){
 
     }
-    public Messages(String subText, String msgMain, String sender, String senderNum, String email, String status, String key, String category, String response) {
+    public Messages(String subText, String msgMain, String sender, String senderNum, String email, String status, String key, String category, String response, String time) {
         this.subject = subText;
         this.message = msgMain;
         this.senderNumber = senderNum;
@@ -19,6 +19,7 @@ public class Messages {
         this.key = key;
         this.category = category;
         this.response = response;
+        this.time = time;
 
 
     }
@@ -46,4 +47,9 @@ public class Messages {
     public String getStatus() {
         return this.status;
     }
+
+    public String getTime() {
+        return this.time;
+    }
+
 }

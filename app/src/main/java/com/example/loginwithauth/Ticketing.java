@@ -41,17 +41,17 @@ public class Ticketing extends AppCompatActivity implements View.OnClickListener
                 startActivity(new Intent(Ticketing.this, SubmitTicket.class));
                 break;
 
-            case (R.id.accountingDept):
-                startActivity(new Intent(Ticketing.this, TicketAccounting.class));
-                break;
-
-            case (R.id.techDept):
-                startActivity(new Intent(Ticketing.this, TicketingTech.class));
-                break;
-
-            case (R.id.others):
-                startActivity(new Intent(Ticketing.this, OtherConcerns.class));
-                break;
+//            case (R.id.accountingDept):
+//                startActivity(new Intent(Ticketing.this, TicketAccounting.class));
+//                break;
+//
+//            case (R.id.techDept):
+//                startActivity(new Intent(Ticketing.this, TicketingTech.class));
+//                break;
+//
+//            case (R.id.others):
+//                startActivity(new Intent(Ticketing.this, OtherConcerns.class));
+//                break;
         }
     }
 

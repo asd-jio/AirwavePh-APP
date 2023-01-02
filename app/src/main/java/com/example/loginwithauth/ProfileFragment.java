@@ -26,8 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
-    //private TextView welcomeText, emailText, firstNameText, lastNameText;
-    //private TextView fullName;
 
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -51,7 +49,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         super.onStart();
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("users");
+
         userID = user.getUid();
         mAuth = FirebaseAuth.getInstance();
 
