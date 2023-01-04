@@ -17,7 +17,7 @@
         android:layout_marginBottom="15dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="Please enter your correct information below."
+        android:text="Clicking the submit button will proceed to SOA Request."
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
@@ -54,26 +54,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soaEmail" />
 
-    <EditText
+    <TextView
         android:id="@+id/soaAccnum"
         android:layout_width="361dp"
         android:layout_height="56dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="25dp"
         android:layout_marginBottom="87dp"
         android:background="@drawable/textbox"
         android:ems="10"
-        android:hint="Ex: AW1234"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="#BCB7B7"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/soaSubmit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-    <EditText
+    <TextView
         android:id="@+id/soaEmail"
         android:layout_width="362dp"
         android:layout_height="54dp"
@@ -81,11 +81,11 @@
         android:layout_marginEnd="25dp"
         android:background="@drawable/textbox"
         android:ems="10"
-        android:hint="Ex: example@gmail.com"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="#BCB7B7"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,5 +120,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/soabanner" />
+
+    <Spinner
+        android:id="@+id/currentPlan"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="65dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:backgroundTint="#FFFFFF"
+        android:backgroundTintMode="multiply"
+        app:layout_constraintBottom_toTopOf="@+id/imageView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mainMessage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="740dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/senderName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="740dp"
+        android:gravity="start"
+        android:padding="10dp"
+        android:text="tixNum"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.loginwithauth;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -19,6 +20,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,17 +31,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 public class SubmitTicket extends AppCompatActivity implements View.OnClickListener {
 
-    private Button uploadimage;
-    public Uri imageUri;
-    private ImageView addImage;
+    private ImageView addImage, addImage2, addImage3;
     Button submitTicket;
     private EditText  etMainMessage;
     private TextView tvSender;
@@ -52,11 +55,14 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
     private SimpleDateFormat dateFormat;
     private String date;
 
-    private FirebaseStorage storage;
-    private StorageReference storageReference;
-    ProgressDialog progressDialog;
 
-    ActivityResultLauncher<String> mTakePhoto;
+
+    FirebaseStorage storage;
+    Uri imageUri;
+
+
+
+    ActivityResultLauncher<String> mTakePhoto, mTakePhoto2, mTakePhoto3;
 
     ProgressBar progressBar;
 
@@ -64,12 +70,40 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ticketing_layout);
+
+        storage = FirebaseStorage.getInstance();
         mTakePhoto = registerForActivityResult(
                 new ActivityResultContracts.GetContent(),
                 new ActivityResultCallback<Uri>() {
                     @Override
                     public void onActivityResult(Uri result) {
-                        addImage.setImageURI(result);
+
+                        if(result != null){
+                            addImage.setImageURI(result);
+                            imageUri = result;
+                        }
+
+                    }
+                }
+        );
+
+        mTakePhoto2 = registerForActivityResult(
+                new ActivityResultContracts.GetContent(),
+                new ActivityResultCallback<Uri>() {
+                    @Override
+                    public void onActivityResult(Uri result) {
+                        addImage2.setImageURI(result);
+
+                    }
+                }
+        );
+
+        mTakePhoto3 = registerForActivityResult(
+                new ActivityResultContracts.GetContent(),
+                new ActivityResultCallback<Uri>() {
+                    @Override
+                    public void onActivityResult(Uri result) {
+                        addImage3.setImageURI(result);
 
                     }
                 }
@@ -110,25 +144,33 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         senderName = (TextView) findViewById(R.id.senderName);
         senderEmail = (TextView) findViewById(R.id.senderEmail);
 
-        storage = FirebaseStorage.getInstance();
 
 
         addImage = (ImageView) findViewById(R.id.addimage);
         addImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 mTakePhoto.launch("image/*");
             }
         });
 
-//        uploadimage = (Button) findViewById(R.id.upload);
-//        uploadimage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                uploadPicture();
-//            }
-//        });
+        addImage2 = (ImageView) findViewById(R.id.addimage2);
+        addImage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mTakePhoto2.launch("image/*");
+            }
+        });
 
+        addImage3 = (ImageView) findViewById(R.id.addimage3);
+        addImage3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mTakePhoto3.launch("image/*");
+
+            }
+        });
 
         submitTicket = findViewById(R.id.submitButton);
         submitTicket.setOnClickListener(this);
@@ -138,9 +180,6 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("users");
         userID = user.getUid();
-
-
-
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             public void onDataChange(DataSnapshot snapshot) {
@@ -161,19 +200,52 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+
+
     }
 
 
+    private void uploadImage() {
+
+//        ProgressDialog dialog = new ProgressDialog(this);
+//        dialog.setMessage("Uploading...");
+//        dialog.show();
+
+        if (imageUri != null){
+            StorageReference reference = storage.getReference().child("images/" + UUID.randomUUID().toString());
+
+
+            reference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                    if (task.isSuccessful()){
+
+                        //dialog.dismiss();
+
+
+                        Toast.makeText(SubmitTicket.this, "Image uploaded Successfully!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        //dialog.dismiss();
+                        Toast.makeText(SubmitTicket.this,"Failed to Upload Image!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+
+    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.submitButton:
+                uploadImage();
                 submit();
                 break;
         }
 
     }
+
 
     private void submit() {
         String subText = subjectSpinner.getSelectedItem().toString();
@@ -195,7 +267,7 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
                 break;
             case "Router":
             case "Antenna":
-            case "Wires":
+            case "Wire":
                 category = "Technical Department";
                 break;
             case "Receipt":
@@ -206,7 +278,10 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
                 break;
 
             default:
-
+                reference = FirebaseDatabase.getInstance().getReference("Invalid Tickets").child(category + key);
+                etMainMessage.setError("Please select Category!");
+                etMainMessage.requestFocus();
+                return;
         }
 
 
@@ -229,6 +304,7 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         if (category == "Accounting Department") {
             reference = FirebaseDatabase.getInstance().getReference(category).child(category + key);
         }
+
 
         reference1 = FirebaseDatabase.getInstance().getReference("New Tickets").child(category+key);
         Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, category, response, time);

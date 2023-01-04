@@ -86,7 +86,7 @@
         android:layout_marginEnd="20dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="Please fill the form below"
+        android:text="Please select your new plan."
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +128,7 @@
 
     <TextView
         android:id="@+id/senderEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="411dp"
         android:layout_marginBottom="584dp"

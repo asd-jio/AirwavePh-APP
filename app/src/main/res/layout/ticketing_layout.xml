@@ -18,13 +18,47 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Deprecated">
 
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="277dp"
+            android:layout_height="98dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="20dp"
+            android:layout_x="35dp"
+            android:layout_y="394dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="*Please attach photos.(Optional)"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="277dp"
+            android:layout_height="98dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="20dp"
+            android:layout_x="35dp"
+            android:layout_y="100dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="Please describe your concern briefly."
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
         <Spinner
             android:id="@+id/currentPlan"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="21dp"
             android:layout_marginEnd="20dp"
-            android:layout_y="30dp"
+            android:layout_y="60dp"
             android:background="@android:drawable/btn_dropdown"
             android:backgroundTint="#FFFFFF"
             android:backgroundTintMode="multiply"
@@ -36,7 +70,7 @@
             android:id="@+id/mainMessage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_y="100dp"
+            android:layout_y="190dp"
             android:background="@drawable/textbox"
             android:backgroundTint="#FFFFFF"
             android:ems="10"
@@ -61,23 +95,23 @@
 
         <TextView
             android:id="@+id/senderNumber"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_y="580dp"
             android:textColor="#F4F4F4"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/senderName"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_y="535dp"
             android:textColor="#F4F4F4"
             android:textSize="20sp" />
         <TextView
             android:id="@+id/senderEmail"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_y="620dp"
             android:textColor="#F4F4F4"
             android:textSize="20sp" />
@@ -92,18 +126,27 @@
 
         <ImageView
             android:id="@+id/addimage"
-            android:layout_width="298dp"
-            android:layout_height="143dp"
-            android:layout_x="14dp"
-            android:layout_y="314dp"
-            app:srcCompat="@drawable/airwave_logo" />
+            android:layout_width="103dp"
+            android:layout_height="208dp"
+            android:layout_x="0dp"
+            android:layout_y="450dp"
+            app:srcCompat="@drawable/addimage_icon" />
 
-        <Button
-            android:id="@+id/upload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="111dp"
-            android:layout_y="465dp"
-            android:text="Button" />
+        <ImageView
+            android:id="@+id/addimage2"
+            android:layout_width="103dp"
+            android:layout_height="208dp"
+            android:layout_x="110dp"
+            android:layout_y="450dp"
+            app:srcCompat="@drawable/addimage_icon" />
+
+        <ImageView
+            android:id="@+id/addimage3"
+            android:layout_width="103dp"
+            android:layout_height="208dp"
+            android:layout_x="220dp"
+            android:layout_y="450dp"
+            app:srcCompat="@drawable/addimage_icon" />
+
     </AbsoluteLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

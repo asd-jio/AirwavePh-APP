@@ -166,6 +166,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 break;
             case "AW0004":
                 userPlan = "Wired 20mbps";
+            case "AW0005":
+                userPlan = "Wired 30mbps";
                 break;
         }
         switch (Anum){

@@ -75,11 +75,11 @@ public class PlanUpdown extends AppCompatActivity implements View.OnClickListene
         newplanSpinner = (Spinner) findViewById(R.id.newplan);
         newPlan = new ArrayList<>();
         newPlan.add("Select New Plan");
-        newPlan.add("8Mbps");
-        newPlan.add("10Mbps");
-        newPlan.add("15Mbps");
-        newPlan.add("20Mbps");
-        newPlan.add("25Mbps");
+        newPlan.add("8Mbps = 800 PHP");
+        newPlan.add("10Mbps = 1,000 PHP");
+        newPlan.add("15Mbps = 1,200 PHP");
+        newPlan.add("20Mbps = 1,400 PHP");
+        newPlan.add("25Mbps = 1,700 PHP");
 
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -96,8 +96,8 @@ public class PlanUpdown extends AppCompatActivity implements View.OnClickListene
                     senderName.setText(name);
                     senderNumber.setText(acctNum);
                     senderEmail.setText(userEmail);
-                    currentPlan.setText(plan);
-                    location.setText(town);
+                    currentPlan.setText("Current Plan: "+plan);
+                    location.setText("Location: "+town);
 
                 }
             }
