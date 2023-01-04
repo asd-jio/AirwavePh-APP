@@ -3,6 +3,7 @@ package com.example.loginwithauth;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -23,6 +24,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     private TextView banner, register;
     private EditText etfullname, etcontactnumber, etaccountnumber, etemail, etpassword, etconpassword, ethousenumber, etstreet, etbarangay, ettown, etprovince;
     private FirebaseAuth mAuth;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +58,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         switch (v.getId()){
             case R.id.regbutton:
                 register();
-                startActivity(new Intent(this, MainActivity.class));
-                finish();
+
+
                 break;
         }
 
@@ -76,6 +78,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         String barangay = etbarangay.getText().toString().trim();
         String town = ettown.getText().toString().trim();
         String province = etprovince.getText().toString().trim();
+        String userPlan = "";
 
         if (fname.isEmpty()){
             etfullname.setError("Please enter your Full Name");
@@ -148,34 +151,74 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             etprovince.requestFocus();
             return;
         }
+        switch (Anum) {
+            case "AW0000":
+                userPlan = "Wireless 25mbps";
+                break;
+            case "AW0001":
+                userPlan = "Wireless 10mbps";
+                break;
+            case "AW0002":
+                userPlan = "Wired 50mbps";
+                break;
+            case "AW0003":
+                userPlan = "Wired 15mbps";
+                break;
+            case "AW0004":
+                userPlan = "Wired 20mbps";
+                break;
+        }
+        switch (Anum){
+            case "AW0000":
+            case "AW0001":
+            case "AW0002":
+            case "AW0003":
+            case "AW0004":
+            case "AW0005":
+                String plan = userPlan;
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()){
+
+                            Users user = new Users(fname, email, Cnum, Anum, password, cpassword, Hnum, street, barangay, town, province, plan);
+
+                            FirebaseDatabase.getInstance().getReference("users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if(task.isSuccessful()){
+
+                                        Toast.makeText(Register.this, "Account Created Successfully", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(context, MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
 
 
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                if (task.isSuccessful()){
-                    Users user = new Users(fname, email, Cnum, Anum, password, cpassword, Hnum, street, barangay, town, province);
-
-                    FirebaseDatabase.getInstance().getReference("users")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-
-                            if(task.isSuccessful()){
-                                Toast.makeText(Register.this, "Account Created Successfully", Toast.LENGTH_LONG).show();
-
-                            }else{
-                                Toast.makeText(Register.this, "Account failed to register. Please try again", Toast.LENGTH_LONG).show();
-                            }
+                                    }else{
+                                        Toast.makeText(Register.this, "Account failed to register. Please try again", Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                        }else{
+                            Toast.makeText(Register.this, "Account failed to register. Please try again qweqwe", Toast.LENGTH_LONG).show();
                         }
-                    });
-                }else{
-                    Toast.makeText(Register.this, "Account failed to register. Please try again", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+                    }
+                });
+
+                break;
+            default:
+                etaccountnumber.setError("Please provide a valid account number");
+                etaccountnumber.requestFocus();
+        }
+
+
+
+
+
 
 
 

@@ -7,40 +7,51 @@
     android:background="@drawable/bg_color4"
     tools:context=".PlanUpdown">
 
-    <Spinner
-        android:id="@+id/locationSpinner"
+    <TextView
+        android:id="@+id/location"
         android:layout_width="370dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginStart="21dp"
+        android:background="@color/darkBlue"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
-        android:background="@android:drawable/spinner_background"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="User Location"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/servicetypeSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/currentPlan" />
+
+    <TextView
+        android:id="@+id/currentPlan"
+        android:layout_width="370dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="21dp"
+        android:background="@color/darkBlue"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Current user Plan"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Spinner
         android:id="@+id/servicetypeSpinner"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
-        android:layout_marginEnd="20dp"
-        android:background="@android:drawable/spinner_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Spinner
-        android:id="@+id/currentplan"
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
+        android:text="Current user Plan"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
         android:background="@android:drawable/spinner_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/location" />
 
     <Spinner
         android:id="@+id/newplan"
@@ -52,7 +63,7 @@
         android:background="@android:drawable/spinner_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentplan" />
+        app:layout_constraintTop_toBottomOf="@+id/servicetypeSpinner" />
 
     <Button
         android:id="@+id/submitonplan"
@@ -91,4 +102,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bandwidthbanner" />
+
+    <TextView
+        android:id="@+id/senderName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="584dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/senderNumber"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="584dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/senderEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="584dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

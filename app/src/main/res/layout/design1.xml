@@ -1,30 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="400dp"
+<AbsoluteLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
 	android:layout_height="100dp"
 	android:layout_gravity="center"
 	android:layout_margin="5dp"
 	android:background="@drawable/buttons"
 	android:orientation="vertical">
 
-	<TextView
+	<Button
 		android:id="@+id/subject"
-		android:layout_width="400dp"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="@color/darkBlue"
-		android:gravity="start"
+		android:background="@drawable/buttons"
+		android:gravity="center"
 		android:padding="10dp"
-		android:text="Song"
-		android:textSize="25sp" />
+		android:text="Context"
+		android:textSize="25sp"
+		android:textColor="@color/black"
+		app:backgroundTint="@color/white"
+		app:backgroundTintMode="multiply"/>
 
 	<TextView
-		android:id="@+id/senderNumber"
+		android:id="@+id/ticketNumber"
 		android:layout_width="400dp"
 		android:layout_height="wrap_content"
+		android:layout_y="60dp"
+		android:gravity="start"
+		android:padding="10dp"
+		android:text="tixNum"
+		android:textColor="@color/white"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/date"
+		android:layout_width="400dp"
+		android:layout_height="wrap_content"
+		android:layout_x="-35dp"
+		android:layout_y="60dp"
+		android:gravity="end"
+		android:padding="10dp"
+		android:text="date"
+		android:textColor="@color/white"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/mainMessage"
+		android:layout_width="0dp"
+		android:layout_height="0dp" />
+
+	<TextView
+		android:id="@+id/number"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_x="0dp"
+		android:layout_y="61dp"
+		android:gravity="start"
+		android:padding="10dp"
+		android:text="tixNum"
+		android:textColor="@color/white"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/name"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
 		android:gravity="start"
 		android:textColor="@color/white"
 		android:padding="10dp"
-		android:text="artis"
+		android:text="tixNum"
 		android:textSize="15sp" />
 
-</LinearLayout>
+
+
+	<TextView
+		android:id="@+id/email"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:gravity="start"
+		android:textColor="@color/white"
+		android:padding="10dp"
+		android:text="tixNum"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/status"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:gravity="start"
+		android:textColor="@color/white"
+		android:padding="10dp"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/category"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:gravity="start"
+		android:textColor="@color/white"
+		android:padding="10dp"
+		android:text="tixNum"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/response"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_x="1dp"
+		android:layout_y="26dp"
+		android:gravity="start"
+		android:padding="10dp"
+		android:text="tixNum"
+		android:textColor="@color/white"
+		android:textSize="15sp" />
+
+</AbsoluteLayout>

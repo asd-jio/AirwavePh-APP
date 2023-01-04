@@ -48,12 +48,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public void onStart(){
         super.onStart();
 
+
+
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         userID = user.getUid();
         mAuth = FirebaseAuth.getInstance();
-
-
+        reference = FirebaseDatabase.getInstance().getReference("users");
 
 
         final Button logout = (Button) context.findViewById(R.id.logout);
@@ -63,7 +64,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         final TextView accNum = (TextView) context.findViewById(R.id.accountNumber);
         final TextView contactNum = (TextView) context.findViewById(R.id.contactNumber);
         final TextView fullAddress = (TextView) context.findViewById(R.id.fullAddress);
-
+        final TextView userPlan = (TextView) context.findViewById(R.id.tvCurrentPlan);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -80,12 +81,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                     String barangay = userProfile.barangay;
                     String town = userProfile.town;
                     String province = userProfile.province;
+                    String plan = userProfile.plan;
 
                     emailText.setText(" " + email);
                     fullName.setText(fName);
                     accNum.setText(aNum);
                     contactNum.setText(cNum);
                     fullAddress.setText(hNum + " " + Street + " " + barangay + " " + town + " "+ province);
+                    userPlan.setText(plan);
 //                    firstNameText.setText(firstName);
 //                    lastNameText.setText(lastName);
                 }
@@ -104,8 +107,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     public void onClick (View v){
         switch (v.getId()){
-            case R.id.editprofile:
-                break;
+
 
             case R.id.logout:{
                 mAuth.signOut();

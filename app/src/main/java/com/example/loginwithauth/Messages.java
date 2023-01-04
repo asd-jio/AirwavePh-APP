@@ -48,6 +48,18 @@ public class Messages {
         return this.status;
     }
 
+    public String getKey() {
+        return this.key;
+    }
+
+    public String getCategory() {
+        return this.category;
+    }
+
+    public String getResponse() {
+        return this.response;
+    }
+
     public String getTime() {
         return this.time;
     }

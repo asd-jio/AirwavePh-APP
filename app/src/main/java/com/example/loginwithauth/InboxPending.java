@@ -1,15 +1,11 @@
 package com.example.loginwithauth;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,9 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
-
-public class InboxTech extends AppCompatActivity {
+public class InboxPending extends AppCompatActivity {
 
     ArrayList<Messages> listMsgs;
     Adapter myAdapter;
@@ -33,7 +27,7 @@ public class InboxTech extends AppCompatActivity {
         setContentView(R.layout.activity_inbox_layout);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        reference = FirebaseDatabase.getInstance().getReference("Messages/ TechDept");
+        reference = FirebaseDatabase.getInstance().getReference("Messages/ AccountingDept");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -60,5 +54,6 @@ public class InboxTech extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
             }
         });
+
     }
 }

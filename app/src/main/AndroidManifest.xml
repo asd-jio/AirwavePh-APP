@@ -13,16 +13,16 @@
             android:name=".ViewMessage"
             android:exported="false" />
         <activity
-            android:name=".InboxAccounting"
+            android:name=".InboxPending"
             android:exported="false" />
         <activity
-            android:name=".InboxIT"
+            android:name=".InboxNew"
             android:exported="false" />
         <activity
             android:name=".InboxOthers"
             android:exported="false" />
         <activity
-            android:name=".InboxTech"
+            android:name=".InboxCompleted"
             android:exported="false" />
         <activity
             android:name=".help3"

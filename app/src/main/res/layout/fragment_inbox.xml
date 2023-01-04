@@ -27,35 +27,28 @@
             android:textSize="45dp" />
 
         <Button
-            android:id="@+id/itDept"
+            android:id="@+id/newTickets"
             android:background="@drawable/buttons"
             android:layout_width="match_parent"
             android:layout_marginBottom="20dp"
             android:layout_height="100dp"
-            android:text="IT Department"/>
+            android:text="New Tickets"/>
 
         <Button
-            android:id="@+id/acctDept"
+            android:id="@+id/pendingTickets"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/buttons2"
-            android:text="Accounting Department" />
+            android:text="Pending" />
 
         <Button
-            android:id="@+id/techDept"
+            android:id="@+id/completedTickets"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/buttons"
-            android:text="Technical Department" />
-
-        <Button
-            android:id="@+id/others"
-            android:layout_width="match_parent"
-            android:background="@drawable/buttons2"
-            android:layout_height="100dp"
-            android:text="Others" />
+            android:text="Completed" />
 
 
     </LinearLayout>
