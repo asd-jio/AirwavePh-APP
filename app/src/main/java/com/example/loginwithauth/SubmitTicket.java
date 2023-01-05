@@ -184,8 +184,8 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             public void onDataChange(DataSnapshot snapshot) {
                 Users user = snapshot.getValue(Users.class);
-                if (user != null) {
 
+                if (user != null) {
                     String name = user.fname;
                     String acctNum = user.Anum;
                     String userEmail = user.email;
@@ -259,6 +259,7 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         String category = "";
         String time = date;
         String plan = "";
+        System.out.println(sender+senderNum);
 
 
         switch (subText){
@@ -305,12 +306,18 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
             reference = FirebaseDatabase.getInstance().getReference(category).child(category + key);
         }
 
+//        sender
 
+        reference2 = FirebaseDatabase.getInstance().getReference(senderNum+"new").child("new" + key);
         reference1 = FirebaseDatabase.getInstance().getReference("New Tickets").child(category+key);
+
+
         Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, category, response, time);
 
         reference.setValue(messages);
         reference1.setValue(messages);
+        reference2.setValue(messages);
+
 
 
 

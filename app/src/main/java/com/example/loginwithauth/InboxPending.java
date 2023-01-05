@@ -27,7 +27,7 @@ public class InboxPending extends AppCompatActivity {
         setContentView(R.layout.activity_inbox_layout);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        reference = FirebaseDatabase.getInstance().getReference("Messages/ AccountingDept");
+        reference = FirebaseDatabase.getInstance().getReference("AW0004delivered");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

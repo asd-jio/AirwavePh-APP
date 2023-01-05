@@ -49,8 +49,10 @@ public class InboxNew extends AppCompatActivity {
                 Users userProfile = snapshot.getValue(Users.class);
 
                 if (userProfile != null){
-                    String accountNumber = userProfile.Anum;
+                    accountNumber = userProfile.Anum;
                     System.out.println(accountNumber);
+
+                    tvAccountNumber.setText(accountNumber);
 
                 }
 
@@ -63,10 +65,36 @@ public class InboxNew extends AppCompatActivity {
 
         });
 
+        String hotDog = tvAccountNumber.getText().toString();
+        String newPath = "";
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        reference = FirebaseDatabase.getInstance().getReference("Delivered Tickets/ AW0000");
+//        switch (hotDog) {
+//            case "AW0000":
+//                newPath = hotDog;
+//                break;
+//            case "AW0001":
+//                newPath = "AW0001";
+//                break;
+//            case "AW0002":
+//                newPath = "AW0002";
+//                break;
+//            case "AW0003":
+//                newPath = "AW0003";
+//                break;
+//            case "AW0004":
+//                newPath = "AW0004";
+//                break;
+//
+//            default:
+//                System.out.println("error");
+//        }
+        System.out.println("this is " +hotDog);
+
+        System.out.println("this that" + newPath);
+        reference = FirebaseDatabase.getInstance().getReference("AW0004new");
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -82,9 +110,9 @@ public class InboxNew extends AppCompatActivity {
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Messages msgs = dataSnapshot.getValue(Messages.class);
-                    //if (msgs != null) {
+                    if (msgs != null) {
                     listMsgs.add(msgs);
-                    //}
+                    }
                 }
                 myAdapter.notifyDataSetChanged();
             }
