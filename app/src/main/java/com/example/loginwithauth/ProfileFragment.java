@@ -70,7 +70,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users userProfile = snapshot.getValue(Users.class);
-
                 if (userProfile != null){
                     String fName = userProfile.fname;
                     String  aNum = userProfile.Anum;

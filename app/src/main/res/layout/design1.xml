@@ -12,26 +12,26 @@
 
 	<Button
 		android:id="@+id/subject"
-		android:layout_width="match_parent"
+		android:layout_width="400dp"
 		android:layout_height="wrap_content"
-		android:background="@drawable/buttons"
+		android:background="#00BCD4"
 		android:gravity="center"
 		android:padding="10dp"
 		android:text="Context"
-		android:textSize="25sp"
-		android:textColor="@color/black"
-		app:backgroundTint="@color/white"
-		app:backgroundTintMode="multiply"/>
+		android:textSize="20sp"
+		app:backgroundTint="#FFFFFF"
+		app:backgroundTintMode="multiply" />
 
 	<TextView
 		android:id="@+id/ticketNumber"
 		android:layout_width="400dp"
 		android:layout_height="wrap_content"
-		android:layout_y="60dp"
+		android:layout_x="0dp"
+		android:layout_y="57dp"
 		android:gravity="start"
 		android:padding="10dp"
 		android:text="tixNum"
-		android:textColor="@color/white"
+		android:textColor="@color/black"
 		android:textSize="15sp" />
 
 	<TextView
@@ -39,20 +39,27 @@
 		android:layout_width="400dp"
 		android:layout_height="wrap_content"
 		android:layout_x="-35dp"
-		android:layout_y="60dp"
+		android:layout_y="90dp"
 		android:gravity="end"
 		android:padding="10dp"
 		android:text="date"
-		android:textColor="@color/white"
+		android:textColor="@color/black"
 		android:textSize="15sp" />
 
 	<TextView
 		android:id="@+id/mainMessage"
 		android:layout_width="0dp"
-		android:layout_height="0dp" />
+		android:layout_height="0dp"
+		android:layout_x="19dp"
+		android:layout_y="50dp"
+		android:gravity="start"
+		android:padding="10dp"
+		android:text="tixNum"
+		android:textColor="@color/white"
+		android:textSize="15sp" />
 
 	<TextView
-		android:id="@+id/number"
+		android:id="@+id/name"
 		android:layout_width="0dp"
 		android:layout_height="0dp"
 		android:layout_x="0dp"
@@ -64,14 +71,16 @@
 		android:textSize="15sp" />
 
 	<TextView
-		android:id="@+id/name"
-		android:layout_width="0dp"
-		android:layout_height="0dp"
+		android:id="@+id/number"
+		android:layout_width="400dp"
+		android:layout_height="wrap_content"
+		android:layout_x="0dp"
+		android:layout_y="90dp"
 		android:gravity="start"
-		android:textColor="@color/white"
 		android:padding="10dp"
-		android:text="tixNum"
-		android:textSize="15sp" />
+		android:text="name"
+		android:textColor="@color/black"
+		android:textSize="15sp"/>
 
 
 
@@ -87,11 +96,14 @@
 
 	<TextView
 		android:id="@+id/status"
-		android:layout_width="0dp"
-		android:layout_height="0dp"
-		android:gravity="start"
-		android:textColor="@color/white"
+		android:layout_width="400dp"
+		android:layout_height="wrap_content"
+		android:layout_x="-35dp"
+		android:layout_y="60dp"
+		android:gravity="end"
 		android:padding="10dp"
+		android:text="status"
+		android:textColor="#000000"
 		android:textSize="15sp" />
 
 	<TextView
@@ -113,7 +125,7 @@
 		android:gravity="start"
 		android:padding="10dp"
 		android:text="tixNum"
-		android:textColor="@color/white"
+		android:textColor="@color/black"
 		android:textSize="15sp" />
 
 </AbsoluteLayout>

@@ -67,14 +67,14 @@ public class PlanUpdown extends AppCompatActivity implements View.OnClickListene
 
         servicetypespinner = (Spinner) findViewById(R.id.servicetypeSpinner);
         servicetype = new ArrayList<>();
-        servicetype.add("Select your New Service Type");
+        servicetype.add("---Select your New Service Type---");
         servicetype.add("Wired");
         servicetype.add("Wireless");
 
 
         newplanSpinner = (Spinner) findViewById(R.id.newplan);
         newPlan = new ArrayList<>();
-        newPlan.add("Select New Plan");
+        newPlan.add("---Select New Plan---");
         newPlan.add("8Mbps = 800 PHP");
         newPlan.add("10Mbps = 1,000 PHP");
         newPlan.add("15Mbps = 1,200 PHP");
@@ -122,7 +122,7 @@ public class PlanUpdown extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         submit();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeFragment.class);
         startActivity(intent);
         finish();
 

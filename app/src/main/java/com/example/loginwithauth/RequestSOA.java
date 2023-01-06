@@ -104,30 +104,19 @@ public class RequestSOA extends AppCompatActivity implements View.OnClickListene
     }
     private void submit(){
 
-        String subText = subjectSpinner.getSelectedItem().toString();
-        String  msgMain = MainMessage.getText().toString().trim();
-
+        String subText = "Statement Of Account";
         String senderNum = senderNumber.getText().toString().trim();
         String sender = senderName.getText().toString().trim();
         String email = senderEmail.getText().toString().trim();
         String status = "queued";
         String key = reference.child("posts").push().getKey();
         String response = "";
-        String category = "";
+        String category = "Accounting Department";
         String time = date;
+        String msgMain = "Customer "+ senderNum +" "+ sender + " is requesting for SOA";
         String plan = "";
 
-        switch (subText){
-
-            case "Request SOA":
-                category = "Accounting Department";
-        }
-        if (category == "Accounting Department") {
-            reference = FirebaseDatabase.getInstance().getReference(category).child(category + key);
-        }
-
-        //reference = FirebaseDatabase.getInstance().getReference("Technical Department");
-
+        reference = FirebaseDatabase.getInstance().getReference("Accounting Department").child(category + key);
         reference1 = FirebaseDatabase.getInstance().getReference("New Tickets").child(category+key);
         Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, category, response, time);
 
@@ -135,19 +124,11 @@ public class RequestSOA extends AppCompatActivity implements View.OnClickListene
         reference1.setValue(messages);
 
 
-//        if (emailsoa.isEmpty()){
-//            emailSoa.setError("Please enter your Email Address");
-//            emailSoa.requestFocus();
-//            return;
-//        }
-//        if (accountsoa.isEmpty()){
-//            AccountnumSoa.setError("Please enter your Account number");
-//            AccountnumSoa.requestFocus();
-//            return;
-//        }
 
-
-            Toast.makeText(RequestSOA.this, "Your request has been received. Please wait while we process your SOA REQUEST. Thank You!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(RequestSOA.this, "Your request has been received. Please wait while we process your SOA REQUEST. Thank You!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(RequestSOA.this, HomePage.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
 
     }
 

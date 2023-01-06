@@ -110,8 +110,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             response = itemView.findViewById(R.id.response);
             time = itemView.findViewById(R.id.date);
 
-
-
         }
     }
 

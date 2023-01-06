@@ -66,7 +66,7 @@ public class InboxNew extends AppCompatActivity {
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        reference = FirebaseDatabase.getInstance().getReference("Delivered Tickets/ AW0000");
+        reference = FirebaseDatabase.getInstance().getReference("AW0004new");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

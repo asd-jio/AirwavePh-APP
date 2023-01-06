@@ -117,23 +117,23 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         progressBar = (ProgressBar)findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.GONE);
 
-        String connection = "Connection";
-        String router = "Router";
-        String others = "Others";
-        String antenna = "Antenna";
-        String wire = "Wire";
-        String receipt = "Receipt";
+        String connection = "Latency Issue";
+        String router = "Faulty Router";
+        String antenna = "Faulty Antenna";
+        String wire = "Disjointed Wire";
+        String receipt = "Reissue Receipt Request";
+        String others = "Other Concern";
 
 
         subjectSpinner = (Spinner) findViewById(R.id.currentPlan);
         subject = new ArrayList<>();
-        subject.add("Select Issue");
+        subject.add("---Select Issue---");
         subject.add(connection);
         subject.add(router);
-        subject.add(others);
         subject.add(antenna);
         subject.add(wire);
         subject.add(receipt);
+        subject.add(others);
 
         subjectSpinner.setAdapter(new ArrayAdapter<>(this,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
@@ -255,25 +255,25 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         String email = senderEmail.getText().toString().trim();
         String status = "queued";
         String key = reference.child("posts").push().getKey();
-        String response = "";
+        String response = " ";
         String category = "";
         String time = date;
         String plan = "";
 
 
         switch (subText){
-            case "Connection":
+            case "Latency Issue":
                 category = "IT Department";
                 break;
-            case "Router":
-            case "Antenna":
-            case "Wire":
+            case "Faulty Router":
+            case "Faulty Antenna":
+            case "Disjointed Wire":
                 category = "Technical Department";
                 break;
-            case "Receipt":
+            case "Reissue Receipt Request":
                 category = "Accounting Department";
                 break;
-            case "Others":
+            case "Other Concern":
                 category = "Other Concerns";
                 break;
 
@@ -306,11 +306,13 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         }
 
 
+        reference2 = FirebaseDatabase.getInstance().getReference(senderNum+"new").child("new" + key);
         reference1 = FirebaseDatabase.getInstance().getReference("New Tickets").child(category+key);
         Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, category, response, time);
 
         reference.setValue(messages);
         reference1.setValue(messages);
+        reference2.setValue(messages);
 
 
 
