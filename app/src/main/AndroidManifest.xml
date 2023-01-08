@@ -17,16 +17,19 @@
             android:exported="false" />
         <activity
             android:name=".InboxPending"
-            android:exported="false" />
+            android:exported="false"
+            android:label="On Process Tickets"/>
         <activity
             android:name=".InboxNew"
-            android:exported="false" />
+            android:exported="false"
+            android:label="New Submissions"/>
         <activity
             android:name=".InboxOthers"
             android:exported="false" />
         <activity
             android:name=".InboxCompleted"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Completed Tickets"/>
         <activity
             android:name=".help3"
             android:exported="false"

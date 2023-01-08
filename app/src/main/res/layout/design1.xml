@@ -12,10 +12,10 @@
 
 	<Button
 		android:id="@+id/subject"
-		android:layout_width="400dp"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="#00BCD4"
-		android:gravity="center"
+		android:background="@drawable/buttons2"
+		android:gravity="start"
 		android:padding="10dp"
 		android:text="Context"
 		android:textSize="20sp"
@@ -27,35 +27,19 @@
 		android:layout_width="400dp"
 		android:layout_height="wrap_content"
 		android:layout_x="0dp"
-		android:layout_y="57dp"
+		android:layout_y="50dp"
 		android:gravity="start"
 		android:padding="10dp"
 		android:text="tixNum"
 		android:textColor="@color/black"
 		android:textSize="15sp" />
 
-	<TextView
-		android:id="@+id/date"
-		android:layout_width="400dp"
-		android:layout_height="wrap_content"
-		android:layout_x="-35dp"
-		android:layout_y="90dp"
-		android:gravity="end"
-		android:padding="10dp"
-		android:text="date"
-		android:textColor="@color/black"
-		android:textSize="15sp" />
+
 
 	<TextView
 		android:id="@+id/mainMessage"
 		android:layout_width="0dp"
 		android:layout_height="0dp"
-		android:layout_x="19dp"
-		android:layout_y="50dp"
-		android:gravity="start"
-		android:padding="10dp"
-		android:text="tixNum"
-		android:textColor="@color/white"
 		android:textSize="15sp" />
 
 	<TextView
@@ -66,19 +50,17 @@
 		android:layout_y="61dp"
 		android:gravity="start"
 		android:padding="10dp"
-		android:text="tixNum"
 		android:textColor="@color/white"
 		android:textSize="15sp" />
 
 	<TextView
 		android:id="@+id/number"
-		android:layout_width="400dp"
-		android:layout_height="wrap_content"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
 		android:layout_x="0dp"
 		android:layout_y="90dp"
 		android:gravity="start"
 		android:padding="10dp"
-		android:text="name"
 		android:textColor="@color/black"
 		android:textSize="15sp"/>
 
@@ -87,19 +69,14 @@
 	<TextView
 		android:id="@+id/email"
 		android:layout_width="0dp"
-		android:layout_height="0dp"
-		android:gravity="start"
-		android:textColor="@color/white"
-		android:padding="10dp"
-		android:text="tixNum"
-		android:textSize="15sp" />
+		android:layout_height="0dp" />
 
 	<TextView
 		android:id="@+id/status"
-		android:layout_width="400dp"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_x="-35dp"
-		android:layout_y="60dp"
+		android:layout_x="0dp"
+		android:layout_y="49dp"
 		android:gravity="end"
 		android:padding="10dp"
 		android:text="status"
@@ -125,6 +102,36 @@
 		android:gravity="start"
 		android:padding="10dp"
 		android:text="tixNum"
+		android:textColor="@color/black"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/imageID1"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/imageID2"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/imageID3"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:textSize="15sp" />
+
+	<TextView
+		android:id="@+id/date"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_x="0dp"
+		android:layout_y="57dp"
+		android:gravity="end"
+		android:padding="10dp"
+		android:text="date"
 		android:textColor="@color/black"
 		android:textSize="15sp" />
 

@@ -143,10 +143,14 @@ public class PlanUpdown extends AppCompatActivity implements View.OnClickListene
         String response = "";
         String category = "IT Department";
         String time = date;
+        String image1 = key+"image1";
+        String image2 = key+"image2";
+        String image3 = key+"image3";
+
 
         reference = FirebaseDatabase.getInstance().getReference(category).child(category + key);
         reference1 = FirebaseDatabase.getInstance().getReference("New Tickets").child(category+key);
-        Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, category, response, time);
+        Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, category, response, time, image1, image2, image3);
 
         reference.setValue(messages);
         reference1.setValue(messages);

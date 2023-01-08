@@ -8,6 +8,12 @@
     android:background="@drawable/bg_color3">
     tools:context=".ViewMessage">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_x="28dp"
+        android:layout_y="-1dp">
+
     <AbsoluteLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -49,7 +55,7 @@
             android:id="@+id/tvresponse"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:layout_y="500dp"
+            android:layout_y="570dp"
             android:text="TextView"
             android:gravity="start"
             android:padding="5dp"
@@ -60,7 +66,7 @@
         <TextView
             android:id="@+id/tvmessage"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="150dp"
             android:layout_y="190dp"
             android:text="TextView"
             android:padding="5dp"
@@ -137,8 +143,41 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <AbsoluteLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_y="350dp"
+            android:background="@drawable/textbox"
+            android:padding="10dp"
+            tools:ignore="Deprecated">
+
+
+            <ImageView
+                android:id="@+id/addImage1"
+                android:layout_width="103dp"
+                android:layout_height="180dp"
+                android:layout_x="0dp" />
+
+
+            <ImageView
+                android:id="@+id/addImage2"
+                android:layout_width="103dp"
+                android:layout_height="180dp"
+                android:layout_x="120dp" />
+
+
+            <ImageView
+                android:id="@+id/addImage3"
+                android:layout_width="103dp"
+                android:layout_height="180dp"
+                android:layout_x="240dp"
+                android:gravity="end" />
+
+        </AbsoluteLayout>
 
 
     </AbsoluteLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

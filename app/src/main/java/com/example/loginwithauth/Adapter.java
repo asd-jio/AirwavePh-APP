@@ -48,7 +48,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.category.setText(messages.getCategory());
         holder.response.setText(messages.getResponse());
         holder.time.setText(messages.getTime());
-
+        holder.image1.setText(messages.getImage1());
+        holder.image2.setText(messages.getImage2());
+        holder.image3.setText(messages.getImage3());
 
 
         holder.subject.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +67,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                 String category = holder.category.getText().toString();
                 String response = holder.response.getText().toString();
                 String time = holder.time.getText().toString();
+                String image1 = holder.image1.getText().toString();
+                String image2 = holder.image2.getText().toString();
+                String image3 = holder.image3.getText().toString();
+
 
                 Intent intent = new Intent(context, ViewMessage.class);
                 intent.putExtra("keyID", key);
@@ -77,6 +83,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
                 intent.putExtra("categoryID", category);
                 intent.putExtra("responseID", response);
                 intent.putExtra("timeID", time);
+                intent.putExtra("image1ID", image1);
+                intent.putExtra("image2ID", image2);
+                intent.putExtra("image3ID", image3);
 
                 context.startActivity(intent);
                 System.out.println(key);
@@ -95,7 +104,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
 
         Button subject;
-        TextView key, message, number, name, email, status, category, response, time;
+        TextView key, message, number, name, email, status, category, response, time,  image1, image2, image3;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -109,6 +118,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             category = itemView.findViewById(R.id.category);
             response = itemView.findViewById(R.id.response);
             time = itemView.findViewById(R.id.date);
+            image1 = itemView.findViewById(R.id.imageID1);
+            image2 = itemView.findViewById(R.id.imageID2);
+            image3 = itemView.findViewById(R.id.imageID3);
+
 
         }
     }

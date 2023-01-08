@@ -124,29 +124,76 @@
             android:layout_x="137dp"
             android:layout_y="360dp" />
 
+
         <ImageView
-            android:id="@+id/addimage"
+            android:id="@+id/addImageHolder"
+            android:layout_width="80dp"
+            android:layout_height="118dp"
+            android:layout_x="10dp"
+            android:layout_y="495dp"
+            app:srcCompat="@drawable/addimage_icon" />
+
+        <ImageView
+            android:id="@+id/addImage2Holder"
+            android:layout_width="80dp"
+            android:layout_height="118dp"
+            android:layout_x="120dp"
+            android:layout_y="495dp"
+            app:srcCompat="@drawable/addimage_icon" />
+
+        <ImageView
+            android:id="@+id/addImage3Holder"
+            android:layout_width="80dp"
+            android:layout_height="118dp"
+            android:layout_x="230dp"
+            android:layout_y="495dp"
+            app:srcCompat="@drawable/addimage_icon" />
+
+
+        <ImageView
+            android:id="@+id/addImage1"
             android:layout_width="103dp"
             android:layout_height="208dp"
             android:layout_x="0dp"
-            android:layout_y="450dp"
-            app:srcCompat="@drawable/addimage_icon" />
+            android:layout_y="450dp" />
+
+
 
         <ImageView
-            android:id="@+id/addimage2"
+            android:id="@+id/addImage2"
             android:layout_width="103dp"
             android:layout_height="208dp"
             android:layout_x="110dp"
-            android:layout_y="450dp"
-            app:srcCompat="@drawable/addimage_icon" />
+            android:layout_y="450dp" />
+
 
         <ImageView
-            android:id="@+id/addimage3"
+            android:id="@+id/addImage3"
             android:layout_width="103dp"
             android:layout_height="208dp"
             android:layout_x="220dp"
-            android:layout_y="450dp"
-            app:srcCompat="@drawable/addimage_icon" />
+            android:layout_y="450dp" />
+
+        <TextView
+            android:id="@+id/imageText1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/imageText2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/imageText3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textSize="15sp" />
 
     </AbsoluteLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

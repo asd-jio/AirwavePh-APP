@@ -115,11 +115,14 @@ public class RequestSOA extends AppCompatActivity implements View.OnClickListene
         String time = date;
         String msgMain = "Customer "+ senderNum +" "+ sender + " is requesting for SOA";
         String plan = "";
+        String image1 = key+"";
+        String image2 = key+"";
+        String image3 = key+"";
+
 
         reference = FirebaseDatabase.getInstance().getReference("Accounting Department").child(category + key);
         reference1 = FirebaseDatabase.getInstance().getReference("New Tickets").child(category+key);
-        Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, category, response, time);
-
+        Messages messages = new Messages(subText, msgMain, senderNum, sender, email, status, key, category, time, response, image1, image2, image3);
         reference.setValue(messages);
         reference1.setValue(messages);
 
@@ -129,6 +132,7 @@ public class RequestSOA extends AppCompatActivity implements View.OnClickListene
         Intent intent = new Intent(RequestSOA.this, HomePage.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        reference.setValue(messages);
 
     }
 
