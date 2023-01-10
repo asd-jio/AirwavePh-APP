@@ -2,6 +2,7 @@ package com.example.loginwithauth;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.image1.setText(messages.getImage1());
         holder.image2.setText(messages.getImage2());
         holder.image3.setText(messages.getImage3());
+
+        switch (holder.status.getText().toString()){
+            case("QUEUED"):
+                holder.status.setBackgroundColor(Color.parseColor("#e9f542"));
+                break;
+            case ("PENDING"):
+                holder.status.setBackgroundColor(Color.parseColor("#f079f2"));
+                break;
+            case ("COMPLETED"):
+                holder.status.setBackgroundColor(Color.parseColor("#5df567"));
+                break;
+        }
 
 
         holder.subject.setOnClickListener(new View.OnClickListener() {

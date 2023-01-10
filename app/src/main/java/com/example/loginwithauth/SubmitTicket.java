@@ -247,7 +247,7 @@ public class SubmitTicket extends AppCompatActivity implements View.OnClickListe
         String senderNum = senderNumber.getText().toString().trim();
         String sender = senderName.getText().toString().trim();
         String email = senderEmail.getText().toString().trim();
-        String status = "queued";
+        String status = "QUEUED";
         String key = reference.child("posts").push().getKey();
         String response = " ";
         String category = "";

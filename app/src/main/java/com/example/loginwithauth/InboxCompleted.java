@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
+import java.util.Locale;
 
 
 public class InboxCompleted extends AppCompatActivity {
@@ -25,40 +26,157 @@ public class InboxCompleted extends AppCompatActivity {
     ArrayList<Messages> listMsgs;
     Adapter myAdapter;
     RecyclerView recyclerView;
+    private FirebaseUser user;
     private DatabaseReference reference;
+    private String userID;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inbox_layout);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        userID = user.getEmail();;
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        reference = FirebaseDatabase.getInstance().getReference("Messages/ TechDept");
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
         listMsgs = new ArrayList();
         myAdapter = new Adapter(this, listMsgs);
         recyclerView.setAdapter(myAdapter);
-        reference.addValueEventListener(new ValueEventListener(){
+
+        switch (userID){
+            case ("areniegojanjonelle19@gmail.com"):
+            reference = FirebaseDatabase.getInstance().getReference("AW0001completed");
+            reference.addValueEventListener(new ValueEventListener() {
 
 
-            public void onDataChange(DataSnapshot snapshot) {
+                public void onDataChange(DataSnapshot snapshot) {
 
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Messages msgs = dataSnapshot.getValue(Messages.class);
-                    //if (msgs != null) {
-                    listMsgs.add(msgs);
-                    //}
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Messages msgs = dataSnapshot.getValue(Messages.class);
+                        // Users userProfile = snapshot.getValue(Users.class);
+                        //if (msgs != null) {
+
+                        listMsgs.add(msgs);
+                        //   }
+
+                    }
+                    myAdapter.notifyDataSetChanged();
                 }
-                myAdapter.notifyDataSetChanged();
-            }
 
 
-            public void onCancelled(DatabaseError error) {
-            }
-        });
+                public void onCancelled(DatabaseError error) {
+                }
+            });
+            break;
+            case("gremember1@gmail.com"):
+                reference = FirebaseDatabase.getInstance().getReference("AW0002completed");
+                reference.addValueEventListener(new ValueEventListener() {
+
+
+                    public void onDataChange(DataSnapshot snapshot) {
+
+
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Messages msgs = dataSnapshot.getValue(Messages.class);
+                            // Users userProfile = snapshot.getValue(Users.class);
+                            //if (msgs != null) {
+
+                            listMsgs.add(msgs);
+                            //   }
+
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
+
+
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+                break;
+            case("mikemanalo@gmail.com"):
+                reference = FirebaseDatabase.getInstance().getReference("AW0003completed");
+                reference.addValueEventListener(new ValueEventListener() {
+
+
+                    public void onDataChange(DataSnapshot snapshot) {
+
+
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Messages msgs = dataSnapshot.getValue(Messages.class);
+                            // Users userProfile = snapshot.getValue(Users.class);
+                            //if (msgs != null) {
+
+                            listMsgs.add(msgs);
+                            //   }
+
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
+
+
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+                break;
+
+            case("jamesmarkabsalon@gmail.com"):
+                reference = FirebaseDatabase.getInstance().getReference("AW0004completed");
+                reference.addValueEventListener(new ValueEventListener() {
+
+
+                    public void onDataChange(DataSnapshot snapshot) {
+
+
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Messages msgs = dataSnapshot.getValue(Messages.class);
+                            // Users userProfile = snapshot.getValue(Users.class);
+                            //if (msgs != null) {
+
+                            listMsgs.add(msgs);
+                            //   }
+
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
+
+
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+                break;
+            case("bsit4b@gmail.com"):
+                reference = FirebaseDatabase.getInstance().getReference("AW0005completed");
+                reference.addValueEventListener(new ValueEventListener() {
+
+
+                    public void onDataChange(DataSnapshot snapshot) {
+
+
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Messages msgs = dataSnapshot.getValue(Messages.class);
+                            // Users userProfile = snapshot.getValue(Users.class);
+                            //if (msgs != null) {
+
+                            listMsgs.add(msgs);
+                            //   }
+
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
+
+
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+                break;
+
+        }
+
     }
 }

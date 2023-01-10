@@ -23,12 +23,9 @@ public class InboxNew extends AppCompatActivity {
     ArrayList<Messages> listMsgs;
     Adapter myAdapter;
     RecyclerView recyclerView;
-    private DatabaseReference reference, userReference;
     private FirebaseUser user;
-    private String userID, accountNumber;
-    private TextView tvAccountNumber;
-    private FirebaseAuth mAuth;
-
+    private DatabaseReference reference;
+    private String userID;
 
 
     @Override
@@ -38,62 +35,145 @@ public class InboxNew extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        userID = user.getUid();
-        mAuth = FirebaseAuth.getInstance();
-        userReference = FirebaseDatabase.getInstance().getReference("users");
-        tvAccountNumber = (TextView) findViewById(R.id.number);
-
-        userReference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Users userProfile = snapshot.getValue(Users.class);
-
-                if (userProfile != null){
-                    String accountNumber = userProfile.Anum;
-                    System.out.println(accountNumber);
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-        });
-
-
-
+        userID = user.getEmail();
+        ;
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        reference = FirebaseDatabase.getInstance().getReference("AW0004new");
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
         listMsgs = new ArrayList();
         myAdapter = new Adapter(this, listMsgs);
         recyclerView.setAdapter(myAdapter);
-        reference.addValueEventListener(new ValueEventListener(){
+
+        switch (userID) {
+            case ("areniegojanjonelle19@gmail.com"):
+                reference = FirebaseDatabase.getInstance().getReference("AW0001new");
+                reference.addValueEventListener(new ValueEventListener() {
 
 
-            public void onDataChange(DataSnapshot snapshot) {
+                    public void onDataChange(DataSnapshot snapshot) {
 
 
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Messages msgs = dataSnapshot.getValue(Messages.class);
-                    //if (msgs != null) {
-                    listMsgs.add(msgs);
-                    //}
-                }
-                myAdapter.notifyDataSetChanged();
-            }
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Messages msgs = dataSnapshot.getValue(Messages.class);
+                            // Users userProfile = snapshot.getValue(Users.class);
+                            //if (msgs != null) {
+
+                            listMsgs.add(msgs);
+                            //   }
+
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
 
 
-            public void onCancelled(DatabaseError error) {
-            }
-        });
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+                break;
+            case ("gremember1@gmail.com"):
+                reference = FirebaseDatabase.getInstance().getReference("AW0002new");
+                reference.addValueEventListener(new ValueEventListener() {
 
+
+                    public void onDataChange(DataSnapshot snapshot) {
+
+
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Messages msgs = dataSnapshot.getValue(Messages.class);
+                            // Users userProfile = snapshot.getValue(Users.class);
+                            //if (msgs != null) {
+
+                            listMsgs.add(msgs);
+                            //   }
+
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
+
+
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+                break;
+            case ("mikemanalo@gmail.com"):
+                reference = FirebaseDatabase.getInstance().getReference("AW0003new");
+                reference.addValueEventListener(new ValueEventListener() {
+
+
+                    public void onDataChange(DataSnapshot snapshot) {
+
+
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Messages msgs = dataSnapshot.getValue(Messages.class);
+                            // Users userProfile = snapshot.getValue(Users.class);
+                            //if (msgs != null) {
+
+                            listMsgs.add(msgs);
+                            //   }
+
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
+
+
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+                break;
+            case("jamesmarkabsalon@gmail.com"):
+                reference = FirebaseDatabase.getInstance().getReference("AW0004new");
+                reference.addValueEventListener(new ValueEventListener() {
+
+
+                    public void onDataChange(DataSnapshot snapshot) {
+
+
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Messages msgs = dataSnapshot.getValue(Messages.class);
+                            // Users userProfile = snapshot.getValue(Users.class);
+                            //if (msgs != null) {
+
+                            listMsgs.add(msgs);
+                            //   }
+
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
+
+
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+                break;
+
+            case("bsit4b@gmail.com"):
+                reference = FirebaseDatabase.getInstance().getReference("AW0005new");
+                reference.addValueEventListener(new ValueEventListener() {
+
+
+                    public void onDataChange(DataSnapshot snapshot) {
+
+
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Messages msgs = dataSnapshot.getValue(Messages.class);
+                            // Users userProfile = snapshot.getValue(Users.class);
+                            //if (msgs != null) {
+
+                            listMsgs.add(msgs);
+                            //   }
+
+                        }
+                        myAdapter.notifyDataSetChanged();
+                    }
+
+
+                    public void onCancelled(DatabaseError error) {
+                    }
+                });
+                break;
+
+        }
 
     }
 }
